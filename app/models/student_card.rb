@@ -1,0 +1,2 @@
+class StudentCard < ApplicationRecord
+end
