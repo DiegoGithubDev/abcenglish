@@ -162,12 +162,8 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
-<<<<<<< HEAD
   pg (~> 0.19.0)
-=======
   materialize-sass
-  pg
->>>>>>> f836c0bf449832fa4e0f3b42b769333e770e6a66
   puma (~> 3.0)
   rails (~> 5.0.2)
   sass-rails (~> 5.0)
