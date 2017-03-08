@@ -1,16 +1,92 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Student Cards</h1>
-
+<link rel="stylesheet" type="text/css" href="app/stylesheets/style.scss">
 <table>
-  <thead>
+  <!--<thead>
     <tr>
       <th>User name</th>
       <th>Password</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
-
+  </thead>-->
+  <!--==================================codigo DiegoALto=====================================-->
+    
+  <div id="main" class="row valign-wrapper">
+    <div class="col s6">
+      <div class="slider">
+        <ul class="slides">
+          <li>
+           <!--  <img src="assets/i1.jpg"> random image -->
+           <img src="<%= asset_path 'i1.jpg' %>">
+            <div class="caption center-align">
+              <h3 class="blue-text"> </h3>
+              <h5 class="light blue-text text-lighten-3"> </h5>
+            </div>
+          </li>
+          <li>
+            <img src="<%= asset_path 'i2.jpg' %>">
+            <div class="caption left-align">
+              <h3 class="blue-text"> </h3>
+              <h5 class="light blue-text text-lighten-3"> </h5>
+            </div>
+          </li>
+          <li>
+            <img src="<%= asset_path 'pag_17.png' %>">
+            <div class="caption right-align">
+              <h3 class="blue-text"> </h3>
+              <h5 class="light blue-text text-lighten-3"> </h5>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col s3 valign card" style="margin-right: 5em;">
+      <div class="row no-pm">
+      </div>
+      <div class="card-content">
+        <!--<img src="assets/sidet.png">
+        <img src="assets/sidet.png">-->
+        <img src="<%= asset_path 'sidet.png' %>">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">person</i>
+            <input id="user" type="text" class="validate">
+            <label for="user">Username</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">vpn_key</i>
+            <input id="pass" type="password" class="validate">
+            <label for="pass">Password</label>
+          </div>
+          <div class="col s12 m12 l12">
+            <a id="login" 
+            class="btn waves-effect waves-light"
+            style="background:#2196F3;">Log in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+      $('#main').css('height','100vh');
+      $('#login').click(function(){
+        var user,pass;
+        user=$('#user').val();
+        pass=$('#pass').val();
+        if(user=='' | pass==''){
+          show('Alguno de los campos esta vac&iacute;o');
+        }else{
+          if(user=='admin' && pass=='admin'){
+          show('Bienvenido a Sidet');
+          redirect('dashboard.html');
+        }else{
+          show('Usuario inv&aacute;lido');
+        }
+        }
+      });
+    </script>
+    <!--========================================================================================-->
   <tbody>
     <% @student_cards.each do |student_card| %>
       <tr>
