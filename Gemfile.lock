@@ -81,15 +81,8 @@ GEM
     multi_json (1.12.1)
     nio4r (2.0.0)
     nokogiri (1.7.0.1)
-      mini_portile2 (~> 2.1.0)
-<<<<<<< HEAD
-    nokogiri (1.7.0.1-x86-mingw32)
-      mini_portile2 (~> 2.1.0)
+    mini_portile2 (~> 2.1.0)
     pg (0.19.0)
-    pg (0.19.0-x86-mingw32)
-=======
-    pg (0.19.0)
->>>>>>> f836c0bf449832fa4e0f3b42b769333e770e6a66
     puma (3.7.1)
     rack (2.0.1)
     rack-test (0.6.3)
