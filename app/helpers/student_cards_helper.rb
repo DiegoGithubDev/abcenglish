@@ -1,0 +1,2 @@
+module StudentCardsHelper
+end

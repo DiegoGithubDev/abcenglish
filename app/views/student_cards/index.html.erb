@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Student Cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User name</th>
+      <th>Password</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @student_cards.each do |student_card| %>
+      <tr>
+        <td><%= student_card.user_name %></td>
+        <td><%= student_card.password %></td>
+        <td><%= link_to 'Show', student_card %></td>
+        <td><%= link_to 'Edit', edit_student_card_path(student_card) %></td>
+        <td><%= link_to 'Destroy', student_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student Card', new_student_card_path %>

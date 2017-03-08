@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @student_card.user_name %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @student_card.password %>
+</p>
+
+<%= link_to 'Edit', edit_student_card_path(@student_card) %> |
+<%= link_to 'Back', student_cards_path %>

@@ -1,0 +1,27 @@
+<%= form_for(student_card) do |f| %>
+  <% if student_card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student_card.errors.count, "error") %> prohibited this student_card from being saved:</h2>
+
+      <ul>
+      <% student_card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
