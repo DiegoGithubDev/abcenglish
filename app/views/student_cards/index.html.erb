@@ -1,38 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Student Cards</h1>
-<link rel="stylesheet" type="text/css" href="app/stylesheets/style.scss">
-<table>
-  <!--<thead>
-    <tr>
-      <th>User name</th>
-      <th>Password</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>-->
-  <!--==================================codigo DiegoALto=====================================-->
-    
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+   <link rel="stylesheet" type="text/css" href="app/stylesheets/style.scss">
+</head>
+<body class="no-scroll">
   <div id="main" class="row valign-wrapper">
     <div class="col s6">
       <div class="slider">
         <ul class="slides">
           <li>
-           <!--  <img src="assets/i1.jpg"> random image -->
-           <img src="<%= asset_path 'i1.jpg' %>">
+            <img src="img/i1.jpg"> <!-- random image -->
             <div class="caption center-align">
               <h3 class="blue-text"> </h3>
               <h5 class="light blue-text text-lighten-3"> </h5>
             </div>
           </li>
           <li>
-            <img src="<%= asset_path 'i2.jpg' %>">
+            <img src="img/i2.jpg"> <!-- random image -->
             <div class="caption left-align">
               <h3 class="blue-text"> </h3>
               <h5 class="light blue-text text-lighten-3"> </h5>
             </div>
           </li>
           <li>
-            <img src="<%= asset_path 'pag_17.png' %>">
+            <img src="img/pag_17.png"> <!-- random image -->
             <div class="caption right-align">
               <h3 class="blue-text"> </h3>
               <h5 class="light blue-text text-lighten-3"> </h5>
@@ -45,8 +37,6 @@
       <div class="row no-pm">
       </div>
       <div class="card-content">
-        <!--<img src="assets/sidet.png">
-        <img src="assets/sidet.png">-->
         <img src="<%= asset_path 'sidet.png' %>">
         <div class="row">
           <div class="input-field col s12">
@@ -67,7 +57,9 @@
         </div>
       </div>
     </div>
-    </div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/init.js"></script>
     <script type="text/javascript">
       $('#main').css('height','100vh');
       $('#login').click(function(){
@@ -86,20 +78,6 @@
         }
       });
     </script>
-    <!--========================================================================================-->
-  <tbody>
-    <% @student_cards.each do |student_card| %>
-      <tr>
-        <td><%= student_card.user_name %></td>
-        <td><%= student_card.password %></td>
-        <td><%= link_to 'Show', student_card %></td>
-        <td><%= link_to 'Edit', edit_student_card_path(student_card) %></td>
-        <td><%= link_to 'Destroy', student_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Student Card', new_student_card_path %>
+  </body>
+  </html>
+ 
