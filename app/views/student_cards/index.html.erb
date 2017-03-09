@@ -6,11 +6,20 @@
 </head>
 <body class="no-scroll">
   <div id="main" class="row valign-wrapper">
+  <head>
+    <title>Abcenglishbook</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div id="main" class="row valign-wrapper">
     <div class="col s6">
       <div class="slider">
         <ul class="slides">
           <li>
             <img src="img/i1.jpg"> <!-- random image -->
+            <img src="<%= asset_path 'i1.jpg' %>">
             <div class="caption center-align">
               <h3 class="blue-text"> </h3>
               <h5 class="light blue-text text-lighten-3"> </h5>
@@ -80,4 +89,17 @@
     </script>
   </body>
   </html>
- 
+     <script>
+        $(document).ready(function(){
+        $('.slider').slider();
+    });
+     </script>
+    <%= yield %>
+  </body>
+</html>
+
+
+
+
+
+
