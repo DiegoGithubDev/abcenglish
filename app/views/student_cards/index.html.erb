@@ -4,23 +4,22 @@
   <meta charset="utf-8" />
    <link rel="stylesheet" type="text/css" href="app/stylesheets/style.scss">
 </head>
+<meta charset="utf-8" />
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"
+  media="screen,projection" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+</head>
 <body class="no-scroll">
   <div id="main" class="row valign-wrapper">
-  <head>
-    <title>Abcenglishbook</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <div id="main" class="row valign-wrapper">
     <div class="col s6">
-       <img  width="450" src="<%= asset_path 'pag_17.png' %>">
-      <!-- <div class="slider">
+      <div class="slider">
         <ul class="slides">
           <li>
             <img src="img/i1.jpg"> <!-- random image -->
-            <img src="<%= asset_path 'i1.jpg' %>">
             <div class="caption center-align">
               <h3 class="blue-text"> </h3>
               <h5 class="light blue-text text-lighten-3"> </h5>
@@ -41,21 +40,21 @@
             </div>
           </li>
         </ul>
-      </div> -->
+      </div>
     </div>
     <div class="col s3 valign card" style="margin-right: 5em;">
       <div class="row no-pm">
       </div>
       <div class="card-content">
-        <img src="<%= asset_path 'sidet.png' %>">
+        <img src="img/sidet.png">
         <div class="row">
           <div class="input-field col s12">
-            <!-- <i class="material-icons prefix">person</i> -->
+            <i class="material-icons prefix">person</i>
             <input id="user" type="text" class="validate">
-            <!-- <label for="user">Username</label> -->
-            </div>
+            <label for="user">Username</label>
+          </div>
           <div class="input-field col s12">
-            <!-- <i class="material-icons prefix">vpn_key</i> -->
+            <i class="material-icons prefix">vpn_key</i>
             <input id="pass" type="password" class="validate">
             <label for="pass">Password</label>
           </div>
@@ -67,8 +66,8 @@
         </div>
       </div>
     </div>
-    <!-- <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script> -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="js/init.js"></script>
     <script type="text/javascript">
       $('#main').css('height','100vh');
@@ -88,16 +87,6 @@
         }
       });
     </script>
-  </body>
-  </html>
-     <script>
-        $(document).ready(function(){
-        $('.slider').slider();
-        $('.materialboxed').materialbox();
-  
-    });
-     </script>
-    <%= yield %>
   </body>
 </html>
 
