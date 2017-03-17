@@ -61,9 +61,10 @@ class StudentCardsController < ApplicationController
     end
   end
 
-  def slider
+  def register
 
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
