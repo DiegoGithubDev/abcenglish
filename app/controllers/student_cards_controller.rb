@@ -25,8 +25,8 @@ class StudentCardsController < ApplicationController
   # POST /student_cards.json
   def create
     @student_card = StudentCard.new(student_card_params)
-    render :index
-   / respond_to do |format|
+    # render :index
+    respond_to do |format|
       if @student_card.save
         format.html { redirect_to @student_card, notice: 'Student card was successfully created.' }
         format.json { render :show, status: :created, location: @student_card }
@@ -34,7 +34,7 @@ class StudentCardsController < ApplicationController
         format.html { render :new }
         format.json { render json: @student_card.errors, status: :unprocessable_entity }
       end
-    end/
+    end
   end
 
   # PATCH/PUT /student_cards/1
