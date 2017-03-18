@@ -1,3 +1,93 @@
+<script type="text/javascript">
+      $(document).ready(function(){
+        $('.bxslider').bxSlider({
+        auto: true,
+        });
+      });
+    </script>
+
+
+<%= form_for(student_card) do |f| %>
+  <% if student_card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student_card.errors.count, "error") %> prohibited this student_card from being saved:</h2>
+
+      <ul>
+      <% student_card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div id="basic-form" class="section">
+              <div class="row">
+               <div class="col s12 m12 l6">
+                  <ul class="bxslider">
+                      <li> 
+                        <div align="center"> <%= link_to image_tag('i1.jpg') %>   </div>  
+                      </li>
+                      <li> 
+                        <div align="center"> <%= link_to image_tag('i2.jpg') %> </div>  
+                      </li>
+                      <li> 
+                        <div align="center"> <%= link_to image_tag('i3.png') %> </div> 
+                      </li>
+
+                      <li> 
+                        <div align="center"> <%= link_to image_tag('girls.png') %> </div> 
+                      </li>
+                      <li> 
+                        <div align="center"> <%= image_tag('girls.png') %> </div> 
+                      </li> 
+                  </ul>
+                </div>
+
+                <!-- Form with placeholder -->
+                <div class="col s12 m12 l6">
+                  <div class="card-panel">
+                    <h4 class="header2">Form Login </h4>
+                    <div class="row">
+                      <form class="col s12">
+                        <div class="row">
+                          <div class="input-field col s12">
+                             <%= f.text_field :user_name, :class => 'form-control' , placeholder: "user name" %>
+                            <label for="first_name" class="active">User Name</label>
+
+                          </div>
+                        </div>
+                      
+                        <div class="row">
+                          <div class="input-field col s12">
+                             <%= f.text_field :password %>
+                            <label for="password" class="active">Password</label>
+                          </div>
+                        </div>     
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <!--<button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit-->
+                                <%= f.submit :class => "btn cyan waves-effect waves-light right" %>
+                                <i class="mdi-content-send right"></i>
+                              </button>
+                            </div>
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+<% end %>
+
+
+
+
+
+
+
+<!--
 <%= form_for(student_card) do |f| %>
   <% if student_card.errors.any? %>
     <div id="error_explanation">
@@ -25,3 +115,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+-->
