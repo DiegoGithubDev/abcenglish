@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Student_card</h1>
 <% if student_signed_in? %>
     <p> BIENVENIDO <%=current_student.user_name%></p>
     <%= link_to "cerrar session",destroy_student_session_path,method: :delete %>
