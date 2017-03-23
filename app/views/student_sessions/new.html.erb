@@ -1,3 +1,13 @@
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.bxslider').bxSlider({
+            adaptiveHeight:false,
+            auto: true,
+        });
+    });
+</script>
 <h1>StudentSessions#new</h1>
 
 <div id="basic-form" class="section">
@@ -27,13 +37,13 @@
     <!-- Form with placeholder -->
     <div class="col s12 m12 l6">
       <div class="card-panel">
-        <%= form_for @student, method:post  do |f| %>
+        <%= form_tag student_sessions_path, method: :post do %>
             <h4 class="header2">Form Login </h4>
             <div class="row">
               <form class="col s12">
                 <div class="row">
                   <div class="input-field col s12">
-                    <%= f.text_field_tag :user_name, :class => 'form-control' , placeholder: "user name" %>
+                    <%= text_field_tag :user_name %>
                     <label for="first_name" class="active">User Name</label>
 
                   </div>
@@ -41,23 +51,16 @@
 
                 <div class="row">
                   <div class="input-field col s12">
-                    <%= f.password_field_tag :password, autocomplete: "off" %>
+                    <%= password_field_tag :password, autocomplete: "off" %>
                     <label for="password" class="active">Password</label>
                   </div>
                 </div>
-                <div class="row">
-                  <% if devise_mapping.rememberable? -%>
-                      <div class="field">
-                        <%= f.check_box :remember_me %>
-                        <%= f.label :remember_me %>
-                      </div>
-                  <% end -%>
-                </div>
+
 
                 <div class="row">
                   <div class="input-field col s12">
-                    <%= f.submit  "log in" ,:class => "btn cyan waves-effect waves-light right" %>
-                    <i class="mdi-content-send right"></i>
+                    <%= submit_tag   %>
+                    <!--<i class="mdi-content-send right"></i>-->
                   </div>
                 </div>
               </form>

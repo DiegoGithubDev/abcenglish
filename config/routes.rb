@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   get 'student_sessions/destroy'
 
+  get '/login',  to: 'student_sessions#new'
+  get '/logout', to: 'student_sessions#destroy'
+
   resource :student_sessions
   #match 'login' => 'student_sessions#new', as: :login
   #match 'logout' => 'student_sessions#destroy', as: :logout
