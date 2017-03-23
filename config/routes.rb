@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'student_sessions/new'
+
+  get 'student_sessions/create'
+
+  get 'student_sessions/destroy'
+
+  resource :student_sessions
+  #match 'login' => 'student_sessions#new', as: :login
+  #match 'logout' => 'student_sessions#destroy', as: :logout
+
   devise_for :students, :controllers => { registrations: 'registrations' }
   #resources :students
   resources :student_cards do
