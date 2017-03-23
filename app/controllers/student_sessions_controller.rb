@@ -13,10 +13,14 @@ class StudentSessionsController < ApplicationController
 
     #render :text => params[:password].inspect
     #@studentx= Student.find(params[:user_name])
-    @studentx= Student.all.inspect
-    #if @student
-     render :text => params[:user_name].inspect + @studentx
-    #else
+    #@studentx= Student.find_by(user_name: params[:user_name],password: params[:password]) error por la encripatacion
+    @studentx= Student.find_by(user_name: params[:user_name])
+    if @studentx != nil
+     render :text => params[:user_name].inspect + @studentx.to_s
+    else
+      render :text =>' no existe el ususario'
+    end
+      #else
      # render :text => params[:user_name].inspect + "no existe"
     #end
   end
