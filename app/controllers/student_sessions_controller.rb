@@ -20,7 +20,7 @@ class StudentSessionsController < ApplicationController
     else
       @student_cards = StudentCard.find_by(user_name: params[:user_name],password: params[:password])
       if @student_cards!=nil
-        render :text => 'registrese por favor'
+        render :text => 'registrese por favor '
       end
     end
       #else
