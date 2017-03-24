@@ -2,6 +2,7 @@
 
 <% if student_signed_in? %>
     <p> BIENVENIDO <%=current_student.user_name%></p>
+    <%= image_tag  @student.image.url(:thumb) if @student.image?%>
     <%= link_to "cerrar session",destroy_student_session_path,method: :delete %>
 <% else %>
     <%= link_to "crea una cuenta", new_student_registration_path%>

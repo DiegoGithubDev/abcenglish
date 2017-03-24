@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :pictures
+  resources :photos
   devise_for :students, :controllers => { registrations: 'registrations' }
-  #resources :students
   resources :student_cards do
 	  collection do
 	  		get 'register'
