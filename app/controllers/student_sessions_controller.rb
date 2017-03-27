@@ -21,12 +21,10 @@ class StudentSessionsController < ApplicationController
       @student_cards = StudentCard.find_by(user_name: params[:user_name],password: params[:password])
       if @student_cards!=nil
         #render :text => 'registrese por favor '
-        redirect_to register_student_cards_path
+        redirect_to :controller =>"students" , :action =>"new"
       end
     end
-      #else
-     # render :text => params[:user_name].inspect + "no existe"
-    #end
+
   end
 
   def destroy
