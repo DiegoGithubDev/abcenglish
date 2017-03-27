@@ -4,6 +4,9 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+
+gem 'mini_magick', '~> 4.6', '>= 4.6.1'
+gem 'carrierwave', '~> 1.0'
 gem 'json', '~> 2.0', '>= 2.0.3'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'bxslider-rails'
