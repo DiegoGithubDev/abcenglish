@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resource :students
+  #resource :students
   get 'students/dashboard'
 
   get 'students/index'
@@ -22,15 +22,16 @@ Rails.application.routes.draw do
   get '/login',  to: 'student_sessions#new'
   get '/logout', to: 'student_sessions#destroy'
 
-  resource :student_sessions
+  #resource :student_sessions
   #match 'login' => 'student_sessions#new', as: :login
   #match 'logout' => 'student_sessions#destroy', as: :logout
 
   resources :pictures
   resources :photos
   # registrations: 'registrations',
-  devise_for :students, :controllers => {sessions: 'students/sessions',
-                                         registrations: 'registrations'
+  #sessions: 'students/sessions',
+  devise_for :students, :controllers => {registrations: 'registrations',
+                                         sessions:'sessions'
 
   }
   resources :student_cards do
