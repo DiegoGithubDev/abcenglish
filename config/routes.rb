@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'students/new'
 
   get 'students/create'
+  get 'students/dashboard'
 
   get 'students/destroy'
 
