@@ -1,4 +1,30 @@
 Rails.application.routes.draw do
+  resource :students
+  get 'students/dashboard'
+
+  get 'students/index'
+
+  get 'students/new'
+
+  get 'students/create'
+  get 'students/dashboard'
+
+  get 'students/destroy'
+
+  get 'students/edit'
+
+  get 'student_sessions/new'
+
+  get 'student_sessions/create'
+
+  get 'student_sessions/destroy'
+
+  get '/login',  to: 'student_sessions#new'
+  get '/logout', to: 'student_sessions#destroy'
+
+  resource :student_sessions
+  #match 'login' => 'student_sessions#new', as: :login
+  #match 'logout' => 'student_sessions#destroy', as: :logout
 
   resources :pictures
   resources :photos
