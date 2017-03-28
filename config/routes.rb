@@ -26,12 +26,14 @@ Rails.application.routes.draw do
   #match 'login' => 'student_sessions#new', as: :login
   #match 'logout' => 'student_sessions#destroy', as: :logout
 
+  # registrations: 'registrations',
+  #sessions: 'students/sessions',
+
   resources :pictures
   resources :photos
   # registrations: 'registrations',
-  #sessions: 'students/sessions',
-  devise_for :students, :controllers => {registrations: 'registrations',
-                                         sessions:'sessions'
+  devise_for :students, :controllers => {sessions: 'students/sessions',
+                                         registrations: 'students/registrations'
 
   }
   resources :student_cards do
