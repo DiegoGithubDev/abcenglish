@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   # registrations: 'registrations',
   #sessions: 'students/sessions',
 
+  get 'perfil/principal'
+
   resources :pictures
   resources :photos
   # registrations: 'registrations',
