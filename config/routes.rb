@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'perfil/principal'
+
   resources :pictures
   resources :photos
   # registrations: 'registrations',
