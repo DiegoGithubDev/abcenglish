@@ -9,12 +9,12 @@ Rails.application.routes.draw do
                                          registrations: 'students/registrations'
 
   }
-  resources :student_cards do
-	  collection do
-	  		get 'register'
-	  end
-  end
-  root 'student_cards#index'
+  root :to => redirect("/students/sign_in")
+  #redirect_to root_path
+  #devise_scope :students do
+   # root  "students/sessions#new"
+  #end
+  #root :to => 'students/sessions#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 		 
