@@ -30,6 +30,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'sass-rails', '~> 5.0'
 # Use materialize
 gem 'materialize-sass'
+#use rail utils
+gem 'rails_utils'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
