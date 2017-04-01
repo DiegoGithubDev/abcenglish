@@ -11,10 +11,11 @@ class Students::SessionsController < Devise::SessionsController
     if student_signed_in?
       render '/perfil/principal'
     else
-      # codigo de chated render :text => StudentCard.find_by(user_name: session[:user_name]).inspect
       @student_cards = StudentCard.find_by(user_name: params[:student][:user_name],password: params[:student][:password])
-      if @student_cards
-      redirect_to :controller =>"registrations" , :action =>"new"
+      if @student_cards &&  @student_cards.state == FALSE
+        #@student_cards.state = TRUE
+        #@student_cards.save
+        redirect_to :controller =>"registrations" , :action =>"new"
       else
       render text: "no existe el ususario"
       end
