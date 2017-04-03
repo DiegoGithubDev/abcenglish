@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_action :authenticate_student!
   def index
     @estudent= Student.all
   end
