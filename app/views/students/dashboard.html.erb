@@ -8,10 +8,21 @@
   <nav>
     <div class="nav-wrapper blue">
       <a href="#!" class="brand-logo">Logo</a>
-      <!--<ul class="right hide-on-med-and-down">
+      <ul class="right hide-on-med-and-down">
         <li><a href="sass.html">Sass</a></li>
         <li><a href="badges.html">Components</a></li>
-      </ul>-->
+        <!--log out  and log in    -->
+        <% if student_signed_in? %>
+            <li>
+              <%= link_to('Logout', destroy_student_session_path, :method => :delete) %>
+            </li>
+        <% else %>
+            <li>
+              <%= link_to('Login', root_path)  %>
+            </li>
+        <% end %>
+        <!--end log out and log in   -->
+      </ul>
     </div>
   </nav>
 </div>
