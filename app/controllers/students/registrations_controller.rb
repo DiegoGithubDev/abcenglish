@@ -2,6 +2,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
    before_action :configure_sign_up_params, only: [:create]
    before_action :configure_account_update_params, only: [:update]
 
+
   # GET /resource/sign_up
    def new
      super
@@ -9,7 +10,12 @@ class Students::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
    def create
-      super
+     super
+     if resource.save
+       #@student_cards = StudentCard.find_by(user_name: params[:student][:user_name],password: params[:student][:password])
+       $student_cards.state=TRUE
+       $student_cards.save
+     end
    end
 
   # GET /resource/edit
