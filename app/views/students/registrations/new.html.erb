@@ -60,3 +60,64 @@
 <% end %>
 
 <%= render "students/shared/links" %>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+<!--Template of demo dashboar-->
+<div class="col">
+  <!-- Form with placeholder -->
+  <div class="col s12 m12 l6 "  style="margin: 10%"  >
+    <div class="card-panel"  >
+      <h4 class="header2">Form Register</h4>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <!--<div class="input-field col s12">
+              <input placeholder="John Doe" id="name2" type="text">
+              <label for="first_name" class="active">Name</label>
+            </div>-->
+            <div class="input-field  col s12 ">
+              <%= f.label :user_name %><br />
+              <%= f.text_field :user_name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <%= f.label :image %><br />
+              <%= f.file_field :image %><br />
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="john@domainname.com" id="email2" type="email">
+              <label for="email" class="active">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="YourPassword" id="password2" type="password">
+              <label for="password" class="active">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea placeholder="Oh WoW! Let me check this one too." id="message2" class="materialize-textarea"></textarea>
+              <label for="message" class="active">Message</label>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                  <i class="mdi-content-send right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<% end %>
