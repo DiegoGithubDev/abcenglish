@@ -22,4 +22,8 @@ class StudentsController < ApplicationController
 
   end
 
+  def contenido
+
+  end
+
 end

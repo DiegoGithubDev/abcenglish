@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get 'students/create'
   get 'students/dashboard'
-
+  get 'students/contenido'
   get 'students/destroy'
 
   get 'students/edit'
