@@ -17,7 +17,7 @@ class Students::SessionsController < Devise::SessionsController
         #@student_cards.save
         redirect_to :controller =>"registrations" , :action =>"new"
       else
-      render text: "no existe el ususario"
+        redirect_to :controller =>"sessions" , :action =>"new"
       end
     end
   end
