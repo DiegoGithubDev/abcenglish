@@ -74,7 +74,7 @@
             <form class="col s12">
               <div class="row">
                 <div class="input-field  col s6 ">
-                  <i class="material-icons prefix">account_circle</i>
+
                   <%= f.text_field :name,placeholder:'Name',autofocus: true ,class:"active validate"%>
                 </div>
                 <div class="input-field  col s6 ">
@@ -83,12 +83,11 @@
               </div>
               <div class="row">
                 <div class="input-field col s6">
-                  <i class="material-icons prefix">contact_phone</i>
+
                   <%= f.text_field :phone,placeholder:'Phone',autofocus: true, class:"active validate" %>
                 </div>
                 <div class="input-field col s6">
-                  <i class="material-icons prefix">email</i>
-                  <%= f.text_field :address, placeholder:'Email',autofocus: true, class:"active validate" %>
+                  <%= f.text_field :address, placeholder:'Address',autofocus: true, class:"active validate" %>
                 </div>
               </div>
               <div class="row">
@@ -96,6 +95,7 @@
                   <%= f.text_field :user_name , placeholder:'Username',class:"active validate"%>
                 </div>
                 <div class="input-field col s6">
+
                   <%= f.email_field :email, placeholder:'Email',autofocus: true, class:"active validate" %>
                 </div>
               </div>
@@ -122,7 +122,7 @@
 
               <div class="row">
                 <div class="input-field col s6">
-                  <i class="material-icons prefix">lock</i>
+
                   <% if @minimum_password_length %>
                       <em>(<%= @minimum_password_length %> characters minimum)</em>
                   <% end %>
@@ -130,7 +130,7 @@
 
                 </div>
                 <div class="input-field col s6">
-                  <i class="material-icons prefix">lock</i>
+
                   <%= f.password_field :password_confirmation, placeholder:'Password_Confirmation',autocomplete: "off",class:"active validate" %>
                 </div>
               </div>
@@ -183,6 +183,9 @@
   .input-field input[type=text]:focus {
     border-bottom: 1px solid #000;
     box-shadow: 0 1px 0 0 #000;
+    background-color: white;
+    border-radius:4px;
+    border:1px solid #1a237e;
   }
   /* valid color */
   .input-field input[type=text].valid {
