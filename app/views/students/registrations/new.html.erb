@@ -69,41 +69,34 @@
       <!-- Form with placeholder -->
       <div class="col s12 m12 l6 "  style="margin: 10%"  >
         <div class="card-panel"  >
-          <h4 class="header2">Form Register</h4>
+          <h4 class="header2">Register Student</h4>
           <div class="row">
             <form class="col s12">
               <div class="row">
-                <div class="input-field  col s12 ">
-                  <%= f.label :name %>
-                  <%= f.text_field :name, autofocus: true ,class:"active validate"%>
+                <div class="input-field  col s6 ">
+                  <i class="material-icons prefix">account_circle</i>
+                  <%= f.text_field :name,placeholder:'Name',autofocus: true ,class:"active validate"%>
+                </div>
+                <div class="input-field  col s6 ">
+                  <%= f.text_field :last_name , placeholder:'Last Name',autofocus: true  ,class:"active validate"%>
                 </div>
               </div>
               <div class="row">
-                <div class="input-field  col s12 ">
-                  <%= f.label :last_name %>
-                  <%= f.text_field :last_name , autofocus: true  ,class:"active validate"%>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">contact_phone</i>
+                  <%= f.text_field :phone,placeholder:'Phone',autofocus: true, class:"active validate" %>
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">email</i>
+                  <%= f.text_field :address, placeholder:'Email',autofocus: true, class:"active validate" %>
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col s12">
-                  <%= f.label :phone %><br />
-                  <%= f.text_field :phone, autofocus: true, class:"active validate" %>
+                <div class="input-field  col s6 ">
+                  <%= f.text_field :user_name , placeholder:'Username',class:"active validate"%>
                 </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <%= f.label :address %><br />
-                  <%= f.text_field :address, autofocus: true, class:"active validate" %>
-                </div>
-              </div>
-              <div class="row">
-                <!--<div class="input-field col s12">
-                  <input placeholder="John Doe" id="name2" type="text">
-                  <label for="first_name" class="active">Name</label>
-                </div>-->
-                <div class="input-field  col s12 ">
-                  <%= f.label :user_name %><br />
-                  <%= f.text_field :user_name , class:"active validate"%>
+                <div class="input-field col s6">
+                  <%= f.email_field :email, placeholder:'Email',autofocus: true, class:"active validate" %>
                 </div>
               </div>
               <!-- input file cargar imagen
@@ -115,42 +108,35 @@
               </div>
               -->
               <div class="row">
-                <div class="file-field input-field col s12">
+                <div class="file-field input-field col s3">
                   <div class="btn">
+                    <i class="material-icons">add_a_photo</i>
                     <span>image</span>
                     <%= f.file_field :image , class:"active validate"%>
                   </div>
-                  <div class="file-path-wrapper">
+                  <!--<div class="file-path-wrapper">
                     <input class="file-path validate" type="text">
-                  </div>
+                  </div>-->
                 </div>
               </div>
 
               <div class="row">
-                <div class="input-field col s12">
-                  <%= f.label :email %><br />
-                  <%= f.email_field :email, autofocus: true, class:"active validate" %>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <%= f.label :password %>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">lock</i>
                   <% if @minimum_password_length %>
                       <em>(<%= @minimum_password_length %> characters minimum)</em>
-                  <% end %><br />
-                  <%= f.password_field :password, autocomplete: "off" ,class:"active validate"%>
+                  <% end %>
+                  <%= f.password_field :password,placeholder:'Password', autocomplete: "off" ,class:"active validate"%>
 
                 </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <%= f.label :password_confirmation %><br />
-                  <%= f.password_field :password_confirmation, autocomplete: "off",class:"active validate" %>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">lock</i>
+                  <%= f.password_field :password_confirmation, placeholder:'Password_Confirmation',autocomplete: "off",class:"active validate" %>
                 </div>
               </div>
                 <div class="row">
                   <div class="actions btn waves-effect waves-light">
-                    <i class="material-icons right">send</i>
+                    <i class="material-icons">person_add</i>
                     <%= f.submit "Sign up" %>
                   </div>
                 </div>
@@ -162,4 +148,58 @@
 <% end %>
 </div>
 <%= render "students/shared/links" %>
+
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  }
+  .header {
+    width: 100%;
+    height: 100px;
+    background-color: #232F3E;
+    display: inline-block;
+  }
+  .container{
+    background-color:  whitesmoke;
+  }
+    .row{
+      background-color:ghostwhite;
+    }
+
+  /* label color */
+  .input-field label {
+    color: #000;
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #000;
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* valid color */
+  .input-field input[type=text].valid {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* invalid color */
+  .input-field input[type=text].invalid {
+    border-bottom: 2px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+    border: 2px solid #A8A8A8;
+    background-color: #E9E9E9;
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #000;
+  }
+
+</style>
 
