@@ -1,9 +1,17 @@
 class Students::RegistrationsController < Devise::RegistrationsController
    before_action :configure_sign_up_params, only: [:create]
    before_action :configure_account_update_params, only: [:update]
+   before_action :go_to_login
 
-
-  # GET /resource/sign_up
+   #logica si paso por login
+   def go_to_login
+     if $login==TRUE
+       new
+     else
+       redirect_to :controller => 'sessions', :action => 'new'
+     end
+   end
+   # GET /resource/sign_up
    def new
      super
    end
@@ -14,6 +22,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
      if resource.save
        #@student_cards = StudentCard.find_by(user_name: params[:student][:user_name],password: params[:student][:password])
        $student_cards.state=TRUE
+       $login= FALSE
        $student_cards.save
      end
    end

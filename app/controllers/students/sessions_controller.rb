@@ -3,6 +3,7 @@ class Students::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
    def new
+      $login= FALSE
      super
    end
 
@@ -15,6 +16,7 @@ class Students::SessionsController < Devise::SessionsController
       if $student_cards &&  $student_cards.state == FALSE
         #@student_cards.state = TRUE
         #@student_cards.save
+        $login= TRUE
         redirect_to :controller =>"registrations" , :action =>"new"
       else
         redirect_to :controller =>"sessions" , :action =>"new"
