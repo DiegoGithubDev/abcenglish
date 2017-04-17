@@ -88,17 +88,25 @@
       var messageError4="solo se permite letras";
       if (inputLastName.value.length<3){
           alert(messageError3);
+          aux= false
       }
-      if(isNaN(inputLastName.value)){
+      if(!isNaN(inputLastName.value)){
           alert(messageError4)
+          aux= false
       }
 
       //obteniendo y validando el telefono
       var inputPhone=document.getElementById("student_phone");
-      var messageError1="solo se permite numeros";
-      var messageError2="numero no valido";
-      if (inputPhone.value.length<3){
-          alert("solo se permite lestras y num validos");
+      var messageError5="solo se permite numeros";
+      var messageError6="numero no valido";
+      if (isNaN(inputPhone.value){
+          alert(messageError5);
+          aux= false
+      }
+
+      if (inputPhone.value.length<7){
+          alert(messageError6);
+          aux= false
       }
 
       //obteniendo y validando el nombre de usuario
