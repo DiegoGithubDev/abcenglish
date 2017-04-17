@@ -60,9 +60,68 @@
 <% end %>
 <%= render "students/shared/links" %>
  en formulario generado por devise -->
+<script type="text/javascript">
+
+  function validacion() {
+      return false
+  };
+
+  function validaciones(){
+      //obteniendo y validando el nombre
+      var inputName=document.getElementById("student_name");
+      var messageError1="su nombre es muy corto";
+      var messageError2="solo se permite letras";
+      if (inputName.value.length<3){
+          alert(messageError1);
+          return false
+      }
+      if ( isNaN(inputName.value)){
+          alert(messageError2+"no se permite numeros en el nombre");
+          return false
+      }
+
+    //obteniendo y validando el apellido
+      var inputLastName=document.getElementById("student_last_name");
+      var messageError3="su apellido es muy corto";
+      var messageError4="solo se permite letras";
+      if (inputLastName.value.length<3){
+          alert(messageError3);
+      }
+      if(isNaN(inputLastName.value)){
+          alert(messageError4)
+      }
+
+      //obteniendo y validando el telefono
+      var inputPhone=document.getElementById("student_phone");
+      var messageError1="solo se permite numeros";
+      var messageError2="numero no valido";
+      if (inputPhone.value.length<3){
+          alert("solo se permite lestras y num validos");
+      }
+
+      //obteniendo y validando el nombre de usuario
+      var inputUserName=document.getElementById("student_user_name");
+      var messageError1="su usuario ya existe";
+      var messageError2="solo se permite letras";
+      if (inputUserName.value.length<3){
+          alert("su usuario ya existe");
+      }
+
+       //confirmando que password sean iguales
+      var inputPassword=document.getElementById("student_password");
+      var inputPasswordConfirmation=document.getElementById("student_password_confirmation");
+      var messageError1="su password debe contener mas caracteres";
+      if (inputPassword.value.length<3 && inputPasswordConfirmation.value.length<3  ){
+          alert("sus contrasenia no son iguales o muy cortas");
+      }
+
+  };
+
+</script>
+
 
 <div class="container">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :onsubmit => 'return validaciones();' } ) do |f| %>
       <%= devise_error_messages! %>
     <!--Template of demo dashboar-->
     <div class="col">
@@ -122,12 +181,7 @@
 
               <div class="row">
                 <div class="input-field col s6">
-
-                  <% if @minimum_password_length %>
-                      <em>(<%= @minimum_password_length %> characters minimum)</em>
-                  <% end %>
-                  <%= f.password_field :password,placeholder:'Password', autocomplete: "off" ,class:"active validate"%>
-
+                  <%= f.password_field :password,placeholder:'Password (6 characters minimun)', autocomplete: "off" ,class:"active validate"%>
                 </div>
                 <div class="input-field col s6">
 
@@ -137,7 +191,7 @@
                 <div class="row">
                   <div class="actions btn waves-effect waves-light">
                     <i class="material-icons">person_add</i>
-                    <%= f.submit "Sign up" %>
+                    <%= f.submit "Sign up" , onsubmit:"return validacion()"%>
                   </div>
                 </div>
             </form>
@@ -145,10 +199,11 @@
         </div>
       </div>
     </div>
-<% end %>
+  <% end %>
+  <button onclick="validaciones()">Click me</button>
 </div>
-<%= render "students/shared/links" %>
 
+<%= render "students/shared/links" %>
 <style type="text/css">
   *{
     margin: 0;
