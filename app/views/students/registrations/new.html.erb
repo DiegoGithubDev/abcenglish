@@ -67,18 +67,20 @@
   };
 
   function validaciones(){
+      var aux=true
       //obteniendo y validando el nombre
       var inputName=document.getElementById("student_name");
       var messageError1="su nombre es muy corto";
       var messageError2="solo se permite letras";
       if (inputName.value.length<3){
           alert(messageError1);
-          return false
+          aux= false
       }
-      if ( isNaN(inputName.value)){
-          alert(messageError2+"no se permite numeros en el nombre");
-          return false
+      if ( !isNaN(inputName.value)){
+          alert(messageError2+" "+"no se permite numeros en el nombre");
+          aux= false
       }
+
 
     //obteniendo y validando el apellido
       var inputLastName=document.getElementById("student_last_name");
@@ -114,6 +116,8 @@
       if (inputPassword.value.length<3 && inputPasswordConfirmation.value.length<3  ){
           alert("sus contrasenia no son iguales o muy cortas");
       }
+
+      return aux
 
   };
 
