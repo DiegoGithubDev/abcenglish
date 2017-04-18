@@ -79,62 +79,6 @@
 
 
 <script type="text/javascript">
-    $("#formValidate").validate({
-        rules: {
-            uname: {
-                required: true,
-                minlength: 5
-            },
-            cemail: {
-                required: true,
-                email:true
-            },
-            password: {
-                required: true,
-                minlength: 5
-            },
-            cpassword: {
-                required: true,
-                minlength: 5,
-                equalTo: "#password"
-            },
-            curl: {
-                required: true,
-                url:true
-            },
-            crole:"required",
-            ccomment: {
-                required: true,
-                minlength: 15
-            },
-            cgender:"required",
-            cagree:"required",
-        },
-        //For custom messages
-        messages: {
-            uname:{
-                required: "Enter a username",
-                minlength: "Enter at least 5 characters"
-            },
-            curl: "Enter your website",
-        },
-        errorElement : 'div',
-        errorPlacement: function(error, element) {
-            var placement = $(element).data('error');
-            if (placement) {
-                $(placement).append(error)
-            } else {
-                error.insertAfter(element);
-            }
-        }
-    });
-
-
-
-
-
-
-
 
     function validacion() {
       return false
@@ -146,62 +90,89 @@
       var aux=true
       //obteniendo y validando el nombre
       var inputName=document.getElementById("student_name");
+      var paragraphName=document.getElementById("paragraph_name");
       var messageError1="su nombre es muy corto";
       var messageError2="solo se permite letras";
-      if (inputName.value.length<3){
-          alert(messageError1);
-          inputName.style.borderColor="red";
-          inputName.placeholder=messageError2;
+      if (inputName.value.length<3 ){
+          paragraphName.innerHTML=messageError1;
+          paragraphName.style.color="red";
+          inputName.value="";
           aux= false
-      }
-      if ( !isNaN(inputName.value)){
-          alert(messageError2+" "+"no se permite numeros en el nombre");
+      }else if ( !isNaN(inputName.value)){
+          paragraphName.innerHTML=messageError2;
+          paragraphName.style.color="red";
+          inputName.value="";
           aux= false
       }
 
 
     //obteniendo y validando el apellido
       var inputLastName=document.getElementById("student_last_name");
+      var paragraphLastName=document.getElementById("paragraph_last_name");
       var messageError3="su apellido es muy corto";
       var messageError4="solo se permite letras";
       if (inputLastName.value.length<3){
-          alert(messageError3);
+          paragraphLastName.innerHTML=messageError3;
+          paragraphLastName.style.color="red";
+          inputLastName.value="";
           aux= false
-      }
-      if(!isNaN(inputLastName.value)){
-          alert(messageError4)
+
+      }else if(!isNaN(inputLastName.value)){
+          paragraphLastName.innerHTML=messageError4;
+          paragraphLastName.style.color="red";
+          inputLastName.value="";
           aux= false
       }
 
       //obteniendo y validando el telefono
       var inputPhone=document.getElementById("student_phone");
+      var paragraphPhone=document.getElementById("paragraph_phone");
       var messageError5="solo se permite numeros";
-      var messageError6="numero no valido";
-      if (isNaN(inputPhone.value)){
-          alert(messageError5);
+      var messageError6="numero no valido Bolivia";
+      if (isNaN(inputPhone.value) ){
+          paragraphPhone.innerHTML=messageError5;
+          paragraphPhone.style.color="red";
+          inputPhone.value="";
           aux= false
-      }
 
-      if (inputPhone.value.length<7){
-          alert(messageError6);
+      }else if (inputPhone.value.length<7){
+          paragraphPhone.innerHTML=messageError6;
+          paragraphPhone.style.color="red";
+          inputPhone.value="";
           aux= false
       }
 
       //obteniendo y validando el nombre de usuario
       var inputUserName=document.getElementById("student_user_name");
-      var messageError1="su usuario ya existe";
-      var messageError2="solo se permite letras";
-      if (inputUserName.value.length<3){
-          alert("su usuario ya existe");
+      var paragraphUserName=document.getElementById("paragraph_user_name");
+      var messageError7="su usuario ya existe";
+      var messageError8="solo se permite letras";
+      if ( !isNaN(inputUserName.value) ){
+          paragraphUserName.innerHTML=messageError8;
+          paragraphUserName.style.color="red";
+          aux= false
       }
 
        //confirmando que password sean iguales
       var inputPassword=document.getElementById("student_password");
+      var paragraphPassword=document.getElementById("paragraph_password");
+
       var inputPasswordConfirmation=document.getElementById("student_password_confirmation");
-      var messageError1="su password debe contener mas caracteres";
+      var paragraphPasswordConfirmation=document.getElementById("paragraph_password_confirmation");
+
+      var messageError9="su password debe contener mas de 5 caracteres";
+      var messageError10="las password no son iguales";
       if (inputPassword.value.length<3 && inputPasswordConfirmation.value.length<3  ){
-          alert("sus contrasenia no son iguales o muy cortas");
+          paragraphPasswordConfirmation.innerHTML=messageError9;
+          paragraphPasswordConfirmation.style.color="red";
+          aux = false
+      } else if ( inputPassword.value == inputPasswordConfirmation.value  ){
+          paragraphPasswordConfirmation.innerHTML=messageError10;
+          paragraphPasswordConfirmation.style.color="red";
+          aux = false
       }
+
+
 
       return aux
 
@@ -224,28 +195,30 @@
               <div class="row">
                 <div class="input-field  col s6  ">
                   <%= f.text_field :name,placeholder:'Name',autofocus: true ,class: "active validate", style: "margin-bottom: 0px"%>
-                  <p class="help">minimo 6 letras</p>
+                  <p id="paragraph_name" class="help">debe tener mas de 3 letras</p>
                 </div>
                 <div class="input-field  col s6 ">
-                  <%= f.text_field :last_name , placeholder:'Last Name',autofocus: true  ,class:"active validate"%>
+                  <%= f.text_field :last_name , placeholder:'Last Name',autofocus: true  ,class:"active validate", style: "margin-bottom: 0px"%>
+                  <p id="paragraph_last_name" class="help"></p>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s6">
-
-                  <%= f.text_field :phone,placeholder:'Phone',autofocus: true, class:"active validate" %>
+                  <%= f.text_field :phone,placeholder:'Phone',autofocus: true, class:"active validate",  style: "margin-bottom: 0px" %>
+                  <p id="paragraph_phone" class="help"></p>
                 </div>
                 <div class="input-field col s6">
-                  <%= f.text_field :address, placeholder:'Address',autofocus: true, class:"active validate" %>
+                  <%= f.text_field :address, placeholder:'Address',autofocus: true, class:"active validate",  style: "margin-bottom: 0px" %>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field  col s6 ">
-                  <%= f.text_field :user_name , placeholder:'Username',class:"active validate"%>
+                  <%= f.text_field :user_name , placeholder:'Username',class:"active validate", style: "margin-bottom: 0px"%>
+                  <p id="paragraph_user_name" class="help"></p>
                 </div>
                 <div class="input-field col s6">
-
-                  <%= f.email_field :email, placeholder:'Email',autofocus: true, class:"active validate" %>
+                  <%= f.email_field :email, placeholder:'Email',autofocus: true, class:"active validate",  style: "margin-bottom: 0px" %>
+                  <p id="paragraph_email" class="help">falta validar correo</p>
                 </div>
               </div>
               <!-- input file cargar imagen
@@ -271,17 +244,18 @@
 
               <div class="row">
                 <div class="input-field col s6 quit-margen-botton">
-                  <%= f.password_field :password,placeholder:'Password (6 characters minimun)', autocomplete: "off" ,class:"active validate"%>
+                  <%= f.password_field :password,placeholder:'Password (6 characters minimun)', autocomplete: "off" ,class:"active validate",  style: "margin-bottom: 0px"%>
+                  <p id="paragraph_password" class="help"></p>
                 </div>
                 <div class="input-field col s6">
-
-                  <%= f.password_field :password_confirmation, placeholder:'Password_Confirmation',autocomplete: "off",class:"active validate" %>
+                  <%= f.password_field :password_confirmation, placeholder:'Password_Confirmation',autocomplete: "off",class:"active validate",  style: "margin-bottom: 0px" %>
+                  <p id="paragraph_password_confirmation" class="help"></p>
                 </div>
               </div>
                 <div class="row">
                   <div class="actions btn waves-effect waves-light">
                     <i class="material-icons">person_add</i>
-                    <%= f.submit "Sign up" , onsubmit:"return validacion()"%>
+                    <%= f.submit "Sign up" %>
                   </div>
                 </div>
             </form>
