@@ -87,7 +87,7 @@
 
 
   function validaciones(){
-      var aux=true
+      var aux=true;
       //obteniendo y validando el nombre
       var inputName=document.getElementById("student_name");
       var paragraphName=document.getElementById("paragraph_name");
@@ -97,12 +97,12 @@
           paragraphName.innerHTML=messageError1;
           paragraphName.style.color="red";
           inputName.value="";
-          aux= false
+          aux= false;
       }else if ( !isNaN(inputName.value)){
           paragraphName.innerHTML=messageError2;
           paragraphName.style.color="red";
           inputName.value="";
-          aux= false
+          aux= false;
       }
 
 
@@ -115,13 +115,13 @@
           paragraphLastName.innerHTML=messageError3;
           paragraphLastName.style.color="red";
           inputLastName.value="";
-          aux= false
+          aux= false;
 
       }else if(!isNaN(inputLastName.value)){
           paragraphLastName.innerHTML=messageError4;
           paragraphLastName.style.color="red";
           inputLastName.value="";
-          aux= false
+          aux= false;
       }
 
       //obteniendo y validando el telefono
@@ -133,13 +133,13 @@
           paragraphPhone.innerHTML=messageError5;
           paragraphPhone.style.color="red";
           inputPhone.value="";
-          aux= false
+          aux= false;
 
       }else if (inputPhone.value.length<7){
           paragraphPhone.innerHTML=messageError6;
           paragraphPhone.style.color="red";
           inputPhone.value="";
-          aux= false
+          aux= false;
       }
 
       //obteniendo y validando el nombre de usuario
@@ -150,7 +150,8 @@
       if ( !isNaN(inputUserName.value) ){
           paragraphUserName.innerHTML=messageError8;
           paragraphUserName.style.color="red";
-          aux= false
+          paragraphUserName.value="";
+          aux= false;
       }
 
        //confirmando que password sean iguales
@@ -162,14 +163,18 @@
 
       var messageError9="su password debe contener mas de 5 caracteres";
       var messageError10="las password no son iguales";
-      if (inputPassword.value.length<3 && inputPasswordConfirmation.value.length<3  ){
-          paragraphPasswordConfirmation.innerHTML=messageError9;
-          paragraphPasswordConfirmation.style.color="red";
-          aux = false
-      } else if ( inputPassword.value == inputPasswordConfirmation.value  ){
+      if (inputPassword.value.length<3 || inputPasswordConfirmation.value.length<3  ){
+          paragraphPassword.innerHTML=messageError9;
+          paragraphPassword.style.color="red";
+          inputPassword.value="";
+          inputPasswordConfirmation.value="";
+          aux = false;
+      } else if ( inputPassword.value != inputPasswordConfirmation.value  ){
           paragraphPasswordConfirmation.innerHTML=messageError10;
           paragraphPasswordConfirmation.style.color="red";
-          aux = false
+          inputPassword.value="";
+          inputPasswordConfirmation.value="";
+          aux = false;
       }
 
 
@@ -264,7 +269,6 @@
       </div>
     </div>
   <% end %>
-  <button onclick="validaciones()">Click me</button>
 </div>
 
 <%= render "students/shared/links" %>
