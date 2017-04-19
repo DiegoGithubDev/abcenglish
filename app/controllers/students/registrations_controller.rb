@@ -1,16 +1,9 @@
 class Students::RegistrationsController < Devise::RegistrationsController
    before_action :configure_sign_up_params, only: [:create]
    before_action :configure_account_update_params, only: [:update]
-   before_action :go_to_login
+   before_action :go_to_login, only: [:new]
 
-   #logica si paso por login
-   def go_to_login
-     if $login==TRUE
-       new
-     else
-       redirect_to :controller => 'sessions', :action => 'new'
-     end
-   end
+
    # GET /resource/sign_up
    def new
      super
@@ -65,6 +58,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
      params.require(:student).permit(:name, :last_name,:user_name, :email, :password, :password_confirmation, :current_password, :image, :address, :phone)
    end
 
+
   # The path used after sign up.
    def after_sign_up_path_for(resource)
      super(resource)
@@ -74,4 +68,14 @@ class Students::RegistrationsController < Devise::RegistrationsController
    def after_inactive_sign_up_path_for(resource)
     super(resource)
    end
+
+  private
+   #logica si paso por login
+   def go_to_login
+     if $login==FALSE
+       redirect_to :controller => 'sessions', :action => 'new'
+     end
+   end
+
 end
+
