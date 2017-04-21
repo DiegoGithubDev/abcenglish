@@ -9,7 +9,7 @@ class Students::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    if student_signed_in?
+=begin    if student_signed_in?
       super
     else
       $student_cards = StudentCard.find_by(user_name: params[:student][:user_name],password: params[:student][:password])
@@ -21,7 +21,18 @@ class Students::SessionsController < Devise::SessionsController
       else
         redirect_to :controller =>"sessions" , :action =>"new"
       end
-    end
+  end
+=end
+      if student_signed_in?
+        super
+      else
+        $student_cards = StudentCard.find_by(user_name: params[:student][:user_name],password: params[:student][:password])
+        if $student_cards &&  $student_cards.state == FALSE
+          $login= TRUE
+          redirect_to :controller =>"registrations" , :action =>"new"
+        end
+      end
+
   end
 
   # DELETE /resource/sign_out
