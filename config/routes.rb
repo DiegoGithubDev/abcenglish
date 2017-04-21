@@ -39,8 +39,7 @@ Rails.application.routes.draw do
   resources :photos
   # registrations: 'registrations',
   devise_for :students, :controllers => {sessions: 'students/sessions',
-                                         registrations: 'students/registrations',
-                                         dashboard: 'students/registrations'
+                                         registrations: 'students/registrations'
 
   }
   resources :student_cards do
