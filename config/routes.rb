@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+
+  get 'dashboard/save'
+
   #resource :students
   get 'students/dashboard'
 
