@@ -1,40 +1,8 @@
 Rails.application.routes.draw do
-  get 'dashboard/index'
+   #get '/login',  to: 'student_sessions#new'
+  #get '/logout', to: 'student_sessions#destroy'
 
-  get 'dashboard/save'
-
-  #resource :students
-  get 'students/dashboard'
-
-  get 'students/index'
-
-  get 'students/new'
-
-  get 'students/create'
-  get 'students/dashboard'
-  get 'students/contenido'
-  get 'students/destroy'
-
-  get 'students/edit'
-
-  get 'student_sessions/new'
-
-  get 'student_sessions/create'
-
-  get 'student_sessions/destroy'
-
-  get '/login',  to: 'student_sessions#new'
-  get '/logout', to: 'student_sessions#destroy'
-
-  #resource :student_sessions
-  #match 'login' => 'student_sessions#new', as: :login
-  #match 'logout' => 'student_sessions#destroy', as: :logout
-
-  # registrations: 'registrations',
-  #sessions: 'students/sessions',
-
-  get 'perfil/principal'
-
+  get "dashboard/index"
   resources :pictures
   resources :photos
   # registrations: 'registrations',
@@ -42,11 +10,7 @@ Rails.application.routes.draw do
                                          registrations: 'students/registrations'
 
   }
-  resources :student_cards do
-	  collection do
-	  		get 'register'
-	  end
-  end
+
   root :to => redirect("/dashboard/index")
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
