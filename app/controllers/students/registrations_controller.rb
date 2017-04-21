@@ -12,12 +12,6 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # POST /resource
    def create
      super
-     if resource.save
-       #@student_cards = StudentCard.find_by(user_name: params[:student][:user_name],password: params[:student][:password])
-       $student_cards.state=TRUE
-       $login= FALSE
-       $student_cards.save
-     end
    end
 
   # GET /resource/edit
