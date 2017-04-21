@@ -10,7 +10,7 @@ class Students::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     if student_signed_in?
-      render '/students/dashboard'
+      redirect_to :controller =>"dashboard" , :action =>"index"
     else
       $student_cards = StudentCard.find_by(user_name: params[:student][:user_name],password: params[:student][:password])
       if $student_cards &&  $student_cards.state == FALSE
