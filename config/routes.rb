@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   #get '/logout', to: 'student_sessions#destroy'
 
   get "dashboard/index"
-  resources :pictures
-  resources :photos
   # registrations: 'registrations',
   devise_for :students, :controllers => {sessions: 'students/sessions',
                                          registrations: 'students/registrations'
