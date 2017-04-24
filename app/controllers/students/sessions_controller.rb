@@ -9,20 +9,6 @@ class Students::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-=begin    if student_signed_in?
-      super
-    else
-      $student_cards = StudentCard.find_by(user_name: params[:student][:user_name],password: params[:student][:password])
-      if $student_cards &&  $student_cards.state == FALSE
-        #@student_cards.state = TRUE
-        #@student_cards.save
-        $login= TRUE
-        redirect_to :controller =>"registrations" , :action =>"new"
-      else
-        redirect_to :controller =>"sessions" , :action =>"new"
-      end
-  end
-=end
       if student_signed_in?
         super
       else
