@@ -79,21 +79,52 @@
 
 
 <script type="text/javascript">
+  function functionx(){
+      if(document.getElementsByName("commit").disabled == true){ //here
+          alert("disabled");
+      }else{
+          alert("enable");
+      }
+  }
+  function existNumer(valorString) {
+        var i=0;
+        while ( (valorString.indexOf(i) < 0) && (i<9) ){
+            i++;
+        }
 
-    function validacion() {
-      return false
-  };
+        if ( (valorString.indexOf(i)) >= (0) ){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
+  function fieldEmpty(valorString){
+      if( valorString == null || valorString.length == 0 || /^\s+$/.test(valorString) ) {
+          return true;
+      }
+  }
 
 
   function validaciones(){
+      
       var aux=true;
       //obteniendo y validando el nombre
       var inputName=document.getElementById("student_name");
       var paragraphName=document.getElementById("paragraph_name");
       var messageError1="su nombre es muy corto";
       var messageError2="solo se permite letras";
-      if (inputName.value.length<3 ){
+      if (fieldEmpty(inputName.value)){
+          paragraphName.innerHTML="debe llenar este campo";
+          paragraphName.style.color="red";
+          inputName.value="";
+          aux= false;
+      }else if (existNumer(inputName.value)){
+          paragraphName.innerHTML="no se aceptan numeros";
+          paragraphName.style.color="red";
+          inputName.value="";
+          aux= false;
+      }else if (inputName.value.length<3 ){
           paragraphName.innerHTML=messageError1;
           paragraphName.style.color="red";
           inputName.value="";
@@ -111,12 +142,16 @@
       var paragraphLastName=document.getElementById("paragraph_last_name");
       var messageError3="su apellido es muy corto";
       var messageError4="solo se permite letras";
-      if (inputLastName.value.length<3){
+      if (fieldEmpty(inputLastName.value)){
+          paragraphLastName.innerHTML="debe llenar este campo";
+          paragraphLastName.style.color="red";
+          inputLastName.value="";
+          aux= false;
+      }else if (inputLastName.value.length<3){
           paragraphLastName.innerHTML=messageError3;
           paragraphLastName.style.color="red";
           inputLastName.value="";
           aux= false;
-
       }else if(!isNaN(inputLastName.value)){
           paragraphLastName.innerHTML=messageError4;
           paragraphLastName.style.color="red";
@@ -128,14 +163,21 @@
       var inputPhone=document.getElementById("student_phone");
       var paragraphPhone=document.getElementById("paragraph_phone");
       var messageError5="solo se permite numeros";
-      var messageError6="numero no valido Bolivia";
-      if (isNaN(inputPhone.value) ){
+      var messageError6="numero no valido";
+      if (fieldEmpty(inputPhone.value)) {
+          paragraphPhone.innerHTML = "debe llenar este campo";
+          paragraphPhone.style.color = "red";
+          inputPhone.value = "";
+          aux = false;
+      }else if (isNaN(inputPhone.value) ){
           paragraphPhone.innerHTML=messageError5;
           paragraphPhone.style.color="red";
           inputPhone.value="";
           aux= false;
-
-      }else if (inputPhone.value.length<7){
+      }else if (inputPhone.value.length>8 ||
+          inputPhone.value.length<8 ||
+          inputPhone.value.charAt(0)<6 ||
+          inputPhone.value.charAt(0)>7){
           paragraphPhone.innerHTML=messageError6;
           paragraphPhone.style.color="red";
           inputPhone.value="";
@@ -147,7 +189,12 @@
       var paragraphUserName=document.getElementById("paragraph_user_name");
       var messageError7="su usuario ya existe";
       var messageError8="solo se permite letras";
-      if ( !isNaN(inputUserName.value) ){
+      if (fieldEmpty(inputUserName.value)){
+          paragraphUserName.innerHTML="debe llenar este campo";
+          paragraphUserName.style.color="red";
+          inputUserName.value="";
+          aux= false;
+      }else if ( !isNaN(inputUserName.value) ){
           paragraphUserName.innerHTML=messageError8;
           paragraphUserName.style.color="red";
           paragraphUserName.value="";
@@ -163,7 +210,12 @@
 
       var messageError9="su password debe contener mas de 5 caracteres";
       var messageError10="las password no son iguales";
-      if (inputPassword.value.length<3 || inputPasswordConfirmation.value.length<3  ){
+      if (fieldEmpty(inputPassword.value)) {
+          paragraphPassword.innerHTML = "debe llenar este campo";
+          paragraphPassword.style.color = "red";
+          inputPassword.value = "";
+          aux = false;
+      }else if (inputPassword.value.length<3 || inputPasswordConfirmation.value.length<3  ){
           paragraphPassword.innerHTML=messageError9;
           paragraphPassword.style.color="red";
           inputPassword.value="";
@@ -200,7 +252,7 @@
               <div class="row">
                 <div class="input-field  col s6  ">
                   <%= f.text_field :name,placeholder:'Name',autofocus: true ,class: "active validate", style: "margin-bottom: 0px"%>
-                  <p id="paragraph_name" class="help">debe tener mas de 3 letras</p>
+                  <p id="paragraph_name" class="help"></p>
                 </div>
                 <div class="input-field  col s6 ">
                   <%= f.text_field :last_name , placeholder:'Last Name',autofocus: true  ,class:"active validate", style: "margin-bottom: 0px"%>
@@ -223,7 +275,7 @@
                 </div>
                 <div class="input-field col s6">
                   <%= f.email_field :email, placeholder:'Email',autofocus: true, class:"active validate",  style: "margin-bottom: 0px" %>
-                  <p id="paragraph_email" class="help">falta validar correo</p>
+                  <p id="paragraph_email" class="help"></p>
                 </div>
               </div>
               <!-- input file cargar imagen
