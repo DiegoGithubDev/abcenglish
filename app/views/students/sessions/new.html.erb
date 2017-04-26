@@ -1,14 +1,14 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        $('.bxslider').bxSlider({
-            adaptiveHeight:false,
-            auto: true,
+
+        $('input[type="text"]').keyup(function () {
+            if ($(this).val() != '') {
+                $('input[type="submit"]').removeAttr('disabled');
+            }
         });
 
-        $('.slider').slider();
     });
-
 
 </script>
 
