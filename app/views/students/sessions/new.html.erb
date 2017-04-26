@@ -8,6 +8,11 @@
             }
         });
 
+        $('input:submit').focus(
+            function(){
+                $(this).val('');
+            });
+
     });
 
 </script>
@@ -80,7 +85,7 @@
               </label>
             </div>
             <div class="row">
-              <%= f.submit "Log in" ,class:'col s12 btn btn-large waves-effect indigo'%>
+              <%= f.submit "Log in" %>
             </div>
         <%end %>
       </div>
