@@ -17,6 +17,12 @@
 
 
 <script type="text/javascript">
+
+    $(document).mouseover(function(){
+        $('input[type="submit"]').removeAttr('disabled');
+
+    });
+
   function functionx(){
       if(document.getElementsByName("commit").disabled == true){ //here
           alert("disabled");

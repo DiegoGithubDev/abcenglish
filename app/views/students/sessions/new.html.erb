@@ -8,12 +8,23 @@
             }
         });
 
-        $('input:submit').focus(
+        $('input[type="submit"]').on(function(){
+            alert("cambio");
+        });
+
+       /* $('input').focus(
             function(){
-                $(this).val('');
-            });
+                $('input[type="submit"]').removeAttr('disabled');
+            });*/
 
     });
+
+
+    $(document).mouseover(function(){
+        $('input[type="submit"]').removeAttr('disabled');
+
+    });
+
 
 </script>
 
