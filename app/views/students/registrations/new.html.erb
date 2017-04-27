@@ -1,19 +1,4 @@
 
-<style type="text/css">
-
-  .help {
-    margin-left: 0px;
-    margin-top: 0;
-    font-size: 0.8em;
-    color: #777;
-
-  }
-  .quit-margen2-botton2{
-    margin-bottom: 0px;
-    margin-bottom: 0;
-  }
-</style>
-
 <div class="container">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :onsubmit => 'return validaciones();' } ) do |f| %>
       <%= devise_error_messages! %>
