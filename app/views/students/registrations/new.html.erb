@@ -17,6 +17,10 @@
 
 
 <script type="text/javascript">
+    $(document).click(function(){
+        $('input[type="submit"]').removeAttr('disabled');
+
+    });
 
     $(document).mouseover(function(){
         $('input[type="submit"]').removeAttr('disabled');
@@ -99,7 +103,12 @@
           paragraphLastName.style.color="red";
           inputLastName.value="";
           aux= false;
-      }else if (inputLastName.value.length<3){
+      }else if (existNumer(inputLastName.value)) {
+          paragraphLastName.innerHTML="solo se permiten letras";
+          paragraphLastName.style.color="red";
+          inputLastName.value="";
+          aux= false;
+      }else if (inputLastName.value.length<2){
           paragraphLastName.innerHTML=messageError3;
           paragraphLastName.style.color="red";
           inputLastName.value="";
@@ -221,8 +230,7 @@
           aux = false;
       }
 
-
-
+      $('input[type="submit"]').removeAttr('disabled');
       return aux
 
   };
