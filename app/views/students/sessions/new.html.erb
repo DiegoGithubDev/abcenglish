@@ -2,6 +2,9 @@
 <script type="text/javascript">
     $(document).ready(function(){
 
+        //activar el slider
+        $('.slider').slider();
+
         $('input[type="text"]').keyup(function () {
             if ($(this).val() != '') {
                 $('input[type="submit"]').removeAttr('disabled');
