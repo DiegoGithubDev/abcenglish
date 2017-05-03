@@ -1,31 +1,37 @@
 
-<div class="container">
+<div class="container ">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :onsubmit => 'return validaciones();' } ) do |f| %>
       <%= devise_error_messages! %>
     <!--Template of demo dashboar-->
     <div class="col">
       <!-- Form with placeholder -->
-      <div class="col s12 m12 l6 "  style="margin: 10%"  >
+      <div class="col s12 m12 l6  "  style="margin: 10% "  >
         <div class="card-panel"  >
+          <div class="row">
           <h4 class="header2">Register Student</h4>
+          </div>
           <div class="row">
             <form class="col s12">
               <div class="row">
                 <div class="input-field  col s6  ">
-                  <%= f.text_field :name,placeholder:'Name',autofocus: true ,class: "active validate", style: "margin-bottom: 0px"%>
+                  <i class="material-icons prefix">person</i>
+                  <%= f.text_field :name,placeholder:'Name',autofocus: true  %>
                   <p id="paragraph_name" class="help"></p>
                 </div>
                 <div class="input-field  col s6 ">
-                  <%= f.text_field :last_name , placeholder:'Last Name',autofocus: true  ,class:"active validate", style: "margin-bottom: 0px"%>
+                  <i class="material-icons prefix">supervisor_account</i>
+                  <%= f.text_field :last_name , placeholder:'Last Name',autofocus: true, class:"active validate"%>
                   <p id="paragraph_last_name" class="help"></p>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s6">
-                  <%= f.text_field :phone,placeholder:'Phone',autofocus: true, class:"active validate",  style: "margin-bottom: 0px" %>
+                  <i class="material-icons prefix">phone</i>
+                  <%= f.text_field :phone,placeholder:'Phone',autofocus: true, class:"active validate" %>
                   <p id="paragraph_phone" class="help"></p>
                 </div>
                 <div class="input-field col s6">
+                  <i class="material-icons prefix">home</i>
                   <%= f.text_field :address, placeholder:'Address',autofocus: true, class:"active validate",  style: "margin-bottom: 0px" %>
                   <p id="paragraph_address" class="help"></p>
 
@@ -33,10 +39,12 @@
               </div>
               <div class="row">
                 <div class="input-field  col s6 ">
+                  <i class="material-icons prefix">account_circle</i>
                   <%= f.text_field :user_name , placeholder:'Username',class:"active validate", style: "margin-bottom: 0px"%>
                   <p id="paragraph_user_name" class="help"></p>
                 </div>
                 <div class="input-field col s6">
+                  <i class="material-icons prefix">email</i>
                   <%= f.email_field :email, placeholder:'Email',autofocus: true, class:"active validate",  style: "margin-bottom: 0px" %>
                   <p id="paragraph_email" class="help"></p>
                 </div>
@@ -61,20 +69,23 @@
                   </div>
                 </div>
               </div>
-
               <div class="row">
                 <div class="input-field col s6 quit-margen-botton">
+                  <i class="material-icons prefix">lock_outline</i>
                   <%= f.password_field :password,placeholder:'Password (6 characters minimun)', autocomplete: "off" ,class:"active validate",  style: "margin-bottom: 0px"%>
                   <p id="paragraph_password" class="help"></p>
                 </div>
                 <div class="input-field col s6">
+                  <i class="material-icons prefix">lock</i>
                   <%= f.password_field :password_confirmation, placeholder:'Password_Confirmation',autocomplete: "off",class:"active validate",  style: "margin-bottom: 0px" %>
                   <p id="paragraph_password_confirmation" class="help"></p>
                 </div>
               </div>
-                <div class="row">
-                  <i class="material-icons">person_add</i>
-                    <%= f.submit "Sign up" %>
+                <div class="row ">
+                  <br>
+                  <div class="input-field  center-align">
+                    <%= f.submit "Sign up", class:'btn  waves-light'%>
+                  </div>
                 </div>
             </form>
           </div>
@@ -83,6 +94,5 @@
     </div>
 <% end %>
 </div>
-
 <%= render "students/shared/links" %>
 
