@@ -1,35 +1,4 @@
 
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        //activar el slider
-        $('.slider').slider();
-
-        $('input[type="text"]').keyup(function () {
-            if ($(this).val() != '') {
-                $('input[type="submit"]').removeAttr('disabled');
-            }
-        });
-
-        $('input[type="submit"]').on(function(){
-            alert("cambio");
-        });
-
-       /* $('input').focus(
-            function(){
-                $('input[type="submit"]').removeAttr('disabled');
-            });*/
-
-    });
-
-
-    $(document).mouseover(function(){
-        $('input[type="submit"]').removeAttr('disabled');
-
-    });
-
-</script>
-
 <div class="container">
   <div class="row">
     <div class="col s12 m8 l8"  >
