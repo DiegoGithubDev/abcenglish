@@ -70,6 +70,11 @@
                 </div>
               </div>
               <div class="row">
+                <div class="col s2">
+                  <img src="images/book.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                </div>
+              </div>
+              <div class="row">
                 <div class="input-field col s6 quit-margen-botton">
                   <i class="material-icons prefix">lock_outline</i>
                   <%= f.password_field :password,placeholder:'Password (6 characters minimun)', autocomplete: "off" ,class:"active validate",  style: "margin-bottom: 0px"%>
@@ -87,6 +92,7 @@
                     <%= f.submit "Sign up", class:'btn  waves-light'%>
                   </div>
                 </div>
+
             </form>
           </div>
         </div>
