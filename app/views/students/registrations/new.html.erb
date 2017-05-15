@@ -23,36 +23,42 @@
               <div class="row">
                 <div class="input-field  col s6  ">
                   <i class="material-icons prefix">person</i>
-                  <%= f.text_field :name,placeholder:'Name',autofocus: true  %>
+                  <%= f.text_field :name  %>
+                  <%= f.label :name %>
                   <p id="paragraph_name" class="help"></p>
                 </div>
                 <div class="input-field  col s6 ">
                   <i class="material-icons prefix">supervisor_account</i>
-                  <%= f.text_field :last_name , placeholder:'Last Name',autofocus: true, class:"active validate"%>
+                  <%= f.text_field :last_name , class:"active validate"%>
+                  <%= f.label :last_name %>
                   <p id="paragraph_last_name" class="help"></p>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s6">
                   <i class="material-icons prefix">phone</i>
-                  <%= f.text_field :phone,placeholder:'Phone',autofocus: true, class:"active validate" %>
+                  <%= f.text_field :phone, class:"active validate" %>
+                  <%= f.label :phone %>
                   <p id="paragraph_phone" class="help"></p>
                 </div>
                 <div class="input-field col s6">
                   <i class="material-icons prefix">home</i>
-                  <%= f.text_field :address, placeholder:'Address',autofocus: true, class:"active validate",  style: "margin-bottom: 0px" %>
+                  <%= f.text_field :address,class:"active validate",  style: "margin-bottom: 0px" %>
+                  <%= f.label :address %>
                   <p id="paragraph_address" class="help"></p>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field  col s6 ">
                   <i class="material-icons prefix">account_circle</i>
-                  <%= f.text_field :user_name , placeholder:'Username',class:"active validate", style: "margin-bottom: 0px"%>
+                  <%= f.text_field :user_name ,class:"active validate", style: "margin-bottom: 0px"%>
+                  <%= f.label :user_name %>
                   <p id="paragraph_user_name" class="help"></p>
                 </div>
                 <div class="input-field col s6">
                   <i class="material-icons prefix">email</i>
-                  <%= f.email_field :email, placeholder:'Email',autofocus: true, class:"active validate",  style: "margin-bottom: 0px" %>
+                  <%= f.email_field :email, class:"active validate",  style: "margin-bottom: 0px" %>
+                  <%= f.label :email%>
                   <p id="paragraph_email" class="help"></p>
                 </div>
               </div>
@@ -79,12 +85,14 @@
               <div class="row">
                 <div class="input-field col s6 quit-margen-botton">
                   <i class="material-icons prefix">lock_outline</i>
-                  <%= f.password_field :password,placeholder:'Password (6 characters minimun)', autocomplete: "off" ,class:"active validate",  style: "margin-bottom: 0px"%>
+                  <%= f.password_field :password, autocomplete: "off" ,class:"active validate",  style: "margin-bottom: 0px"%>
+                  <%= f.label :password ,placeholder:'Password (6 characters minimun)'%>
                   <p id="paragraph_password" class="help"></p>
                 </div>
                 <div class="input-field col s6">
                   <i class="material-icons prefix">lock</i>
-                  <%= f.password_field :password_confirmation, placeholder:'Password_Confirmation',autocomplete: "off",class:"active validate",  style: "margin-bottom: 0px" %>
+                  <%= f.password_field :password_confirmation,autocomplete: "off",class:"active validate",  style: "margin-bottom: 0px" %>
+                  <%= f.label :password_confirmation,placeholder:'Password_Confirmation' %>
                   <p id="paragraph_password_confirmation" class="help"></p>
                 </div>
               </div>
