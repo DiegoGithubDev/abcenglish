@@ -10,8 +10,9 @@
           <div class="row">
             <div class="col s2 offset-s5">
               <label class="file-field ">
-                <input type="file" class=" hide" onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])">
                 <img id="image" src="<%= asset_path 'profile3.jpg'%>" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                <span>profile</span>
+                <%= f.file_field :image , class:"active validate",onchange:"document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"%>
               </label>
             </div>
           </div>
@@ -70,18 +71,6 @@
                 </div>
               </div>
               -->
-              <div class="row">
-                <div class="file-field input-field col s12">
-                  <div class="btn">
-                    <i class="material-icons">add_a_photo</i>
-                    <span>image</span>
-                    <%= f.file_field :image , class:"active validate"%>
-                  </div>
-                  <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
-                  </div>
-                </div>
-              </div>
               <div class="row">
                 <div class="input-field col s6 quit-margen-botton">
                   <i class="material-icons prefix">lock_outline</i>
