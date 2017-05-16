@@ -14,7 +14,7 @@
         var documentoAltura=$(document).height();
         var filaHaltura= document.getElementById("rowCenter").offsetHeight;
         var sobrante=documentoAltura-filaHaltura;
-        var puntox=(sobrante/2-10);
+        var puntox=(sobrante/2);
         document.getElementById("rowCenter").style.marginTop=puntox+"px";
 
 
