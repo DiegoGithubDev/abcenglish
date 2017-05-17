@@ -30,19 +30,27 @@
 
 <!--boton flotante  -->
 <ul id="slide-out" class=" side-nav" >
-  <li><div class="userView">
-    <div class="background">
-      <img src="<%= asset_path 'office.jpg' %>"  >
+  <li>
+    <div class="userView">
+      <div class="background">
+        <img src="<%= asset_path 'office.jpg' %>"  >
+      </div>
+      <div class="row">
+        <div class="col offset-s4">
+          <img class="circle " src=" <%=  current_student.get_base64_image %> " >
+        </div>
+        <span class="white-text name"><%=current_student.user_name%></span>
+      </div>
     </div>
-    <a href="#!user"><img class="circle" src=" <%=  current_student.get_base64_image %> " ></a>
-    <a href="#!name"><span class="white-text name"><%=current_student.user_name%></span></a>
-    <a href="#!email"><span class="white-text email"><%=current_student.email%></span></a>
-  </div></li>
-  <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-  <li><a href="#!">Second Link</a></li>
+  </li>
+  <li>
+    <%= link_to('Profile') %>
+  </li>
   <li><div class="divider"></div></li>
-  <li><a class="subheader">Subheader</a></li>
-  <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  <li>
+    <%= link_to('Sandbox') %>
+  </li>
+  <li><div class="divider"></div></li>
   <!--log out  and log in    -->
   <% if student_signed_in? %>
       <li>
@@ -64,7 +72,7 @@
 <div class="container">
   <div id="card-stats">
     <div class="row">
-      <div class="col s12 m6 l3">
+      <div class="col s12 m6 l4">
         <div class="card ">
           <div  onclick="redirect('template.html')">
             <i class=" col l12 m12 large material-icons white-text" style="background: #F44336;">home</i>
@@ -82,7 +90,7 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m6 l3">
+      <div class="col s12 m6 l4">
         <div class="card">
           <div >
             <i class=" col l12 m12 large material-icons white-text" style="background: #009688;">home</i>
@@ -100,7 +108,7 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m6 l3">
+      <div class="col s12 m6 l4">
         <div class="card">
           <div >
             <i class=" col l12 m12 large material-icons white-text" style="background: #FFEB3B;">home</i>
@@ -110,24 +118,6 @@
             <div class="row no-pm left-align" style="margin-left: -0.25em;">
               <b class="col s6 no-pm">Nivel</b>
               <span class="col s6 no-pm" style="color: #808080;">Básico</span>
-            </div>
-            <div class="row no-pm left-align" style="margin-left: -0.25em;margin-bottom: 0.25em;">
-              <b class="col s6 no-pm">Progreso</b>
-              <span class="col s6 no-pm" style="color: #808080;">0%</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m6 l3">
-        <div class="card">
-          <div >
-            <i class=" col l12 m12 large material-icons white-text" style="background: #E91E63;">home</i>
-            <div class="row no-pm left-align" style="margin-left: 0.5em;">
-              <b class="no-pm" style="font-size: 1.15em;">Book 4</b>
-            </div>
-            <div class="row no-pm left-align" style="margin-left: -0.25em;">
-              <b class="col s6 no-pm">Nivel</b>
-              <span class="col s6 no-pm" style="color: #808080;">Intermedio</span>
             </div>
             <div class="row no-pm left-align" style="margin-left: -0.25em;margin-bottom: 0.25em;">
               <b class="col s6 no-pm">Progreso</b>
@@ -139,7 +129,7 @@
     </div>
 
     <div class="row">
-      <div class="col s12 m6 l3">
+      <div class="col s12 m6 l4">
         <div class="card ">
           <div  onclick="redirect('template.html')">
             <i class=" col l12 m12 large material-icons white-text" style="background: #F44336;">home</i>
@@ -157,7 +147,7 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m6 l3">
+      <div class="col s12 m6 l4">
         <div class="card">
           <div >
             <i class=" col l12 m12 large material-icons white-text" style="background: #009688;">home</i>
@@ -175,7 +165,7 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m6 l3">
+      <div class="col s12 m6 l4">
         <div class="card">
           <div >
             <i class=" col l12 m12 large material-icons white-text" style="background: #FFEB3B;">home</i>
@@ -193,7 +183,6 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m6 l3">
         <!--card   -->
         <!--card
         <div class="card">
@@ -211,6 +200,8 @@
         </div>
         -->
         <!--end card   -->
+
+
       </div>
     </div>
   </div>
