@@ -9,7 +9,8 @@
 <div class="navbar-fixed ">
   <nav>
     <div class="nav-wrapper blue">
-      <a href="#!" class="brand-logo left" style="position: relative">Home</a>
+      <a href="#" data-activates="slide-out" class=" button-collapse show-on-large"><i class="material-icons">menu</i></a>
+      <a class="brand-logo left" style="position: relative">Home</a>
       <ul class="right hide-on-med-and-down">
         <!--log out  and log in    -->
         <% if student_signed_in? %>
@@ -28,7 +29,9 @@
 </div>
 <!--end nav var fixed  -->
 
-<!--boton flotante  -->
+
+
+<!--side nav  -->
 <ul id="slide-out" class=" side-nav" >
   <li>
     <div class="userView">
@@ -63,12 +66,8 @@
       </li>
   <% end %>
   <!--end log out and log in   -->
-
 </ul>
-<div class="left fixed-action left ">
-  <a href="#" data-activates="slide-out" class=" btn-floating button-collapse left"><i class="material-icons">menu</i></a>
-</div>
-<!--end boton flotante  -->
+<!--end sideNav -->
 
   <div class="container">
     <div id="card-stats">
