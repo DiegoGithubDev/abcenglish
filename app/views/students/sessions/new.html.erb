@@ -42,8 +42,8 @@
         <div class="z-depth-1 grey lighten-4 " style="padding: 0px 38px 0px 38px; border: 1px solid #EEE;">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="row">
-                <div class="input-field col s12 center">
-                  <img src=" <%= asset_path 'sidet.png' %> " >
+                <div class=" center-align input-field col s12">
+                  <img class=" " src=" <%= asset_path 'ABC.png' %> " >
                 </div>
               </div>
               <div class='row'>
@@ -53,7 +53,7 @@
                   <%= f.label :user_name %>
                 </div>
               </div>
-              <div class='row'>
+              <div class='row hide-on-small-only'>
                 <div class="input-field col s12">
                   <i class="material-icons prefix">vpn_key</i>
                   <%= f.password_field :password, autocomplete: "off" %>
