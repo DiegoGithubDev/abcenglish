@@ -1,6 +1,6 @@
 
 <div class="container ">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :onsubmit => 'return validaciones();' } ) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name) ) do |f| %>
       <%= devise_error_messages! %>
     <!--Template of demo dashboar-->
     <div class="col">

@@ -73,13 +73,13 @@ $(document).ready(function() {
                 required: true,
                 email: true
             },
-            "user[email]": {
+            "student[name]": {
                 required: true,
-                email: true
+                minlength: 15
             },
-            "user[email]": {
+            "student[phone]": {
                 required: true,
-                email: true
+                minlength: 5
             }
         },
 
