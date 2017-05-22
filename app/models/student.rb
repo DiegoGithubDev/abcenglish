@@ -1,7 +1,8 @@
 class Student < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-
+  validates :facebook, :length=>{maximum:40}
+  validates :skype, :length=>{maximum:40}
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:user_name]
