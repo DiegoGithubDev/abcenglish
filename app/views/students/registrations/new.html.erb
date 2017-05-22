@@ -63,25 +63,19 @@
                   <p id="paragraph_email" class="help"></p>
                 </div>
               </div>
-              <!-- input file cargar imagen
               <div class="row">
-                <div class="input-field col s12">
-                  <%= f.label :image %><br />
-                  <%= f.file_field :image %><br />
+                <div class="input-field  col s6  ">
+                  <i class="material-icons prefix">photo_library</i>
+                  <%= f.text_field :facebook ,value:'Https://www.facebook.com/',placeholder: 'Https://www.facebook.com/' %>
+                  <%= f.label :facebook ,class:'active' %>
+                  <p id="paragraph_name" class="help"></p>
                 </div>
-              </div>
-              -->
-              <div class="input-field  col s6  ">
-                <i class="material-icons prefix">photo_library</i>
-                <%= f.text_field :facebook ,value:'Https://www.facebook.com/' %>
-                <%= f.label :facebook ,class:'active' %>
-                <p id="paragraph_name" class="help"></p>
-              </div>
-              <div class="input-field  col s6  ">
-                <i class="material-icons prefix">chat</i>
-                <%= f.text_field :skype  %>
-                <%= f.label :skype %>
-                <p id="paragraph_name" class="help"></p>
+                <div class="input-field  col s6  ">
+                  <i class="material-icons prefix">chat</i>
+                  <%= f.text_field :skype  %>
+                  <%= f.label :skype %>
+                  <p id="paragraph_name" class="help"></p>
+                </div>
               </div>
               <div class="row">
                 <div class="input-field col s6 quit-margen-botton">
@@ -97,13 +91,12 @@
                   <p id="paragraph_password_confirmation" class="help"></p>
                 </div>
               </div>
-                <div class="row ">
-                  <br>
-                  <div class="input-field  center-align">
-                    <%= f.submit "Sign up", class:'btn  waves-light'%>
-                  </div>
+              <div class="row ">
+                <br>
+                <div class="input-field  center-align">
+                  <%= f.submit "Sign up", class:'btn  waves-light'%>
                 </div>
-
+              </div>
             </form>
           </div>
         </div>
