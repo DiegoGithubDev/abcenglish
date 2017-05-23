@@ -3,21 +3,61 @@
 $(document).ready(function() {
 
     $("#new_student").validate({
-
+        debug: true,
         rules: {
             "student[name]": {
-                required: true,
-                minlength: 15
+                maxlength:19+1,
+                required: true
+                //Uppercase
+                //onlyTex
             },
+            "student[last_name]":{
+                maxlength:19+1,
+                required: true
+                //Uppercase
+                //onlyTex
+            },
+            "student[phone]": {
+                digits:true,
+                required: true,
+                maxlength:8,
+                min:60000000,
+                max:79999999
+            },
+
+            "student[address]": {
+                maxlength: 50,
+                required: true
+            },
+
+            "student[user_name]": {
+                required: true,
+                minlength: 5
+            },
+
             "user[email]": {
                 required: true,
                 email: true
             },
 
-            "student[phone]": {
+            "student[facebook]": {
                 required: true,
                 minlength: 5
-            }
+            },
+            "student[skype]": {
+                required: true,
+                minlength: 5
+            },
+            "student[password]": {
+                required: true,
+                minlength: 6
+            },
+            "student[password_confirmation]": {
+                required: true,
+                minlength: 6,
+                equalTo: "#password"
+            },
+
         },
         //For custom messages
         messages: {
