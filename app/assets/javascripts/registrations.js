@@ -35,7 +35,7 @@ $(document).ready(function() {
                 minlength: 5
             },
 
-            "user[email]": {
+            "student[email]": {
                 required: true,
                 email: true
             },
