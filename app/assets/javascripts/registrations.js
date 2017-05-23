@@ -1,21 +1,32 @@
 
 
 $(document).ready(function() {
+    jQuery.validator.addMethod("lettersonlys", function(value, element) {
+        return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
+    }, "Letters only please");
+
+    jQuery.validator.addMethod("alphanumeric", function(value, element) {
+        return this.optional(element) || /^[a-zA-Z0-9_]+$/.test(value);
+    }, "Letters and numers only please");
+
 
     $("#new_student").validate({
         debug: true,
         rules: {
             "student[name]": {
                 maxlength:19+1,
-                required: true
+                required: true,
+                lettersonlys:true
                 //Uppercase
-                //onlyTex
+
             },
             "student[last_name]":{
                 maxlength:19+1,
-                required: true
+                required: true,
+                lettersonlys:true
+
                 //Uppercase
-                //onlyTex
+
             },
             "student[phone]": {
                 digits:true,
@@ -31,6 +42,7 @@ $(document).ready(function() {
             },
 
             "student[user_name]": {
+                alphanumeric: true,
                 required: true,
                 minlength: 5
             },
@@ -50,10 +62,13 @@ $(document).ready(function() {
             },
             "student[password]": {
                 required: true,
-                minlength: 6
+                minlength: 6,
+                alphanumeric:true
+
             },
             "student[password_confirmation]": {
                 required: true,
+                alphanumeric:true,
                 minlength: 6,
                 equalTo: "#password"
             },
@@ -61,8 +76,8 @@ $(document).ready(function() {
         },
         //For custom messages
         messages: {
-            uname:{
-                required: "Enter a username",
+            "student[name]":{
+                required: "Enter a username please student",
                 minlength: "Enter at least 5 characters"
             },
             curl: "Enter your website",
