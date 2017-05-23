@@ -5,14 +5,15 @@ $(document).ready(function() {
     $("#new_student").validate({
 
         rules: {
-            "user[email]": {
-                required: true,
-                email: true
-            },
             "student[name]": {
                 required: true,
                 minlength: 15
             },
+            "user[email]": {
+                required: true,
+                email: true
+            },
+
             "student[phone]": {
                 required: true,
                 minlength: 5
