@@ -1,5 +1,5 @@
 
-
+/*
 $(document).ready(function() {
     jQuery.validator.addMethod("lettersonlys", function(value, element) {
         return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
@@ -95,7 +95,7 @@ $(document).ready(function() {
 
 });
 
-
+*/
 $(document).click(function(){
         $('input[type="submit"]').removeAttr('disabled');
 
