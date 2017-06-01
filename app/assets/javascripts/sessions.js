@@ -19,6 +19,8 @@
 
         /*igualando heigth formulario al slider*/
 
+         var heigthSlider=$("#slider").height()+2;
+        $("#form-login").css("height",heigthSlider+"px");
 
         /* $('input').focus(
          function(){

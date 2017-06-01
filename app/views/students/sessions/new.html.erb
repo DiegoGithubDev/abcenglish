@@ -39,7 +39,7 @@
     </div>
     <div class="col s12 m5 l4 " >
       <div style=" background: #7cb342 " >
-        <div id="fomulario" class="z-depth-1 grey lighten-4 " style="padding: 0px 38px 0px 38px; border: 1px solid #EEE;">
+        <div id="form-login" class="z-depth-1 grey lighten-4 " style="padding: 0px 38px 0px 38px; border: 1px solid #EEE;">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="row">
                 <div class=" center-align input-field col s12">
@@ -52,13 +52,11 @@
                   <%= f.text_field :user_name %>
                   <%= f.label :user_name %>
                 </div>
-              </div>
-              <div class='row '>
                 <div class="input-field col s12">
                   <i class="material-icons prefix">vpn_key</i>
                   <%= f.password_field :password, autocomplete: "off" %>
                   <%= f.label :password %>
-                </div>
+              </div>
                 <label style='float: left; margin-left: 20px'>
                   <a class=' darken-1-text' onclick="Materialize.toast('go to adminastration', 900, 'rounded')"><b>Forgot Password?</b></a>
                 </label>
