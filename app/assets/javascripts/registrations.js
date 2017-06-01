@@ -1,6 +1,23 @@
 
-/*
 $(document).ready(function() {
+
+    /* $("#student_name").focus(function(){
+
+     });*/
+    $("#student_name").blur(function(){
+        var cadena=$(this).val();
+        cadena =deleteSpaceWhite(cadena);
+        cadena= ucWords(cadena);
+        $(this).val(cadena);
+    });
+
+    $("#student_last_name").blur(function(){
+        var cadena=$(this).val();
+        cadena =deleteSpaceWhite(cadena);
+        cadena= ucWords(cadena);
+        $(this).val(cadena);
+    });
+    /*---------------------personalitation gem jquey validations--------------------------------------------*/
     jQuery.validator.addMethod("lettersonlys", function(value, element) {
         return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
     }, "Letters only please");
@@ -9,22 +26,47 @@ $(document).ready(function() {
         return this.optional(element) || /^[a-zA-Z0-9_]+$/.test(value);
     }, "Letters and numers only please");
 
+    jQuery.validator.addMethod("convertToUpperCase", function(value, element) {
+        var upperCase= ucWords(value);
+        switch (element.id){
+            case "student_name":
+                $("#student_name").val(upperCase);
+                break;
+            case 'student_last_name':
+                $("#student_last_name").val(upperCase);
+                break;
+        }
+        return true;
+    }, "error uppercase");
+
+    jQuery.validator.addMethod("deleteSpaceBeginEnd", function(value, element) {
+        var cadena="";
+        cadena=delSpaceBeginEnd(cadena);
+        switch (element.id){
+            case "student_name":
+                $("#student_name").val(cadena);
+                break;
+            case 'student_last_name':
+                $("#student_last_name").val(cadena);
+                break;
+        }
+        return true;
+    }, "error deleteSpaceBeginEnd");
+
 
     $("#new_student").validate({
-        debug: true,
         rules: {
             "student[name]": {
                 maxlength:19+1,
                 required: true,
-                lettersonlys:true
+                lettersonlys:true,
                 //Uppercase
 
             },
             "student[last_name]":{
                 maxlength:19+1,
                 required: true,
-                lettersonlys:true
-
+                lettersonlys:true,
                 //Uppercase
 
             },
@@ -62,23 +104,26 @@ $(document).ready(function() {
             },
             "student[password]": {
                 required: true,
-                minlength: 6,
-                alphanumeric:true
+                alphanumeric:true,
+                minlength: 6
 
             },
+
             "student[password_confirmation]": {
                 required: true,
                 alphanumeric:true,
                 minlength: 6,
-                equalTo: "#password"
+                equalTo:"#student_password"
             },
+
 
         },
         //For custom messages
         messages: {
-            "student[name]":{
-                required: "Enter a username please student",
-                minlength: "Enter at least 5 characters"
+            "student[phone]":{
+                required: "Enter a numer phone please",
+                min: "This number is not valid",
+                max: "This number is not valid"
             },
             curl: "Enter your website",
         },
@@ -95,11 +140,10 @@ $(document).ready(function() {
 
 });
 
-*/
-$(document).click(function(){
-        $('input[type="submit"]').removeAttr('disabled');
 
-    });
+$(document).click(function(){
+    $('input[type="submit"]').removeAttr('disabled');
+});
 
 $(document).mouseover(function(){
     $('input[type="submit"]').removeAttr('disabled');
@@ -139,6 +183,44 @@ function validateEmail(valorString) {
         return true;
     }
 }
+
+function delSpaceBeginEnd(cadena){
+    var expresionRegular = /^\s+|\s+$/g;
+    return cadena.replace(expresionRegular, "");
+}
+
+function deleteSpaceWhite(string){
+    var s= string;
+    var ns="";
+    var arrays=s.split(" ");
+    for(i=0;i <arrays.length ;i++){
+        if(arrays[i]!= ""){
+            ns=ns+(arrays[i])+" ";
+        }
+    }
+    return (ns);
+}
+
+function ucWords(string){
+    var arrayWords;
+    var returnString = "";
+    var len;
+    arrayWords = string.split(" ");
+    len = arrayWords.length;
+    for(i=0;i < len ;i++){
+        if(i != (len-1)){
+            returnString = returnString+ucFirst(arrayWords[i])+" ";
+        }
+        else{
+            returnString = returnString+ucFirst(arrayWords[i]);
+        }
+    }
+    return returnString;
+}
+function ucFirst(string){
+    return string.substr(0,1).toUpperCase()+string.substr(1,string.length).toLowerCase();
+}
+
 
 
 function validaciones(){
