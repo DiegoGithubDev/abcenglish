@@ -17,6 +17,9 @@
         var puntox=(sobrante/2);
         $("#rowCenter").css('marginTop',puntox+'px')
 
+        /*igualando heigth formulario al slider*/
+
+
         /* $('input').focus(
          function(){
          $('input[type="submit"]').removeAttr('disabled');
