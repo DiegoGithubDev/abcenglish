@@ -13,7 +13,7 @@ class Students::SessionsController < Devise::SessionsController
         super
       else
         $student_cards = StudentCard.find_by(user_name: params[:student][:user_name],password: params[:student][:password])
-        if $student_cards &&  $student_cards.state == FALSE
+        if $student_cards &&  is_registered?($student_cards)
           $login= TRUE
           redirect_to :controller =>"registrations" , :action =>"new"
         end
@@ -34,4 +34,15 @@ class Students::SessionsController < Devise::SessionsController
      #:attribute
      #params.require(:student).permit(:user_name, :password)
    end
+
+  private
+
+  def is_registered?(student_card)
+    if(student_card.state==FALSE)
+      return false
+    else
+      return true
+    end
+  end
+
 end
