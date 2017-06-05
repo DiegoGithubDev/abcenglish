@@ -15,21 +15,6 @@ ActiveRecord::Schema.define(version: 20170519190318) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "photos", force: :cascade do |t|
-    t.string   "name"
-    t.binary   "data"
-    t.string   "filename"
-    t.string   "mime_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "pictures", force: :cascade do |t|
-    t.binary   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "student_cards", force: :cascade do |t|
     t.string   "user_name"
     t.string   "password"
@@ -57,7 +42,6 @@ ActiveRecord::Schema.define(version: 20170519190318) do
     t.string   "current_page"
     t.string   "phone"
     t.binary   "image"
-    t.string   "password"
     t.string   "address"
     t.string   "facebook"
     t.string   "skype"
