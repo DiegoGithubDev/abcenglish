@@ -12,10 +12,10 @@ class Students::SessionsController < Devise::SessionsController
       if student_signed_in?
         super
       else
-        $student_cards = StudentCard.find_by(user_name: params[:student][:user_name],password: params[:student][:password])
-        if $student_cards &&  !is_registered?($student_cards)
-          $login= TRUE
-          redirect_to :controller =>"registrations" , :action =>"new"
+        $student_cards = get_student_card
+        if $student_cards  &&  !is_registered?($student_cards)
+          $login = TRUE
+          go_to_register
         end
       end
 
@@ -43,6 +43,14 @@ class Students::SessionsController < Devise::SessionsController
     else
       return true
     end
+  end
+
+  def get_student_card
+    return StudentCard.find_by(user_name: params[:student][:user_name],password: params[:student][:password])
+  end
+
+  def go_to_register
+    redirect_to :controller =>"registrations" , :action =>"new"
   end
 
 end
