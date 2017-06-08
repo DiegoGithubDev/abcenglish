@@ -1,43 +1,110 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
+    <div class="col">
+      <!-- Form with placeholder -->
+      <div class="col s12 m12 l6  "  style="margin: 10% "  >
+        <div class="card-panel z-depth-1 grey lighten-4 "  >
+          <div class="row">
+            <div class="center col s2 offset-s5">
+              <label class="file-field ">
+                <img id="image" src="<%= asset_path 'profile3.jpg'%>" alt="" class="circle responsive-img border1"> <!-- notice the "circle" class -->
+                <span>profile</span>
+                <%= f.file_field :image , class:"active validate",onchange:"document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"%>
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <h4 class="center header2">Profile</h4>
+          </div>
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="field  col s12 m6 l6">
+                  <i class="material-icons prefix">person</i>
+                  <%= f.label :name %>
+                  <%= f.text_field :name %>
+                  <p id="paragraph_name" class="help"></p>
+                </div>
+                <div class="field  col s12 m6 l6">
+                  <i class="material-icons prefix">supervisor_account</i>
+                  <%= f.label :last_name %>
+                  <%= f.text_field :last_name%>
+                  <p id="paragraph_last_name" class="help"></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="field col s12 m6 l6">
+                  <i class="material-icons prefix">phone</i>
+                  <%= f.label :phone %>
+                  <%= f.text_field :phone %>
+                  <p id="paragraph_phone" class="help"></p>
+                </div>
+                <div class="field col s12 m6 l6">
+                  <i class="material-icons prefix">home</i>
+                  <%= f.label :address %>
+                  <%= f.text_field :address %>
+                  <p id="paragraph_address" class="help"></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="field  col s12 m6 l6">
+                  <i class="material-icons prefix">account_circle</i>
+                  <%= f.label :user_name %>
+                  <%= f.text_field :user_name %>
+                  <p id="paragraph_user_name" class="help"></p>
+                </div>
+                <div class="field col s12 m6 l6">
+                  <i class="material-icons prefix">email</i>
+                  <%= f.label :email%>
+                  <%= f.email_field :email %>
+                  <p id="paragraph_email" class="help"></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="field col s12 m6 l6">
+                  <i class="material-icons prefix">photo_library</i>
+                  <%= f.label :facebook ,class:'active' %>
+                  <%= f.text_field :facebook ,value:'Https://www.facebook.com/',placeholder: 'Https://www.facebook.com/' %>
+                  <p id="paragraph_name" class="help"></p>
+                </div>
+                <div class="field col s12 m6 l6">
+                  <i class="material-icons prefix">chat</i>
+                  <%= f.label :skype %>
+                  <%= f.text_field :skype  %>
+                  <p id="paragraph_name" class="help"></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="field col s12 m6 l6 quit-margen-botton">
+                  <i class="material-icons prefix">lock_outline</i>
+                  <%= f.label :password ,placeholder:'Password (6 characters minimun)'%>
+                  <%= f.password_field :password %>
+                  <p id="paragraph_password" class="help"></p>
+                </div>
+                <div class="field col col s12 m6 l6">
+                  <i class="material-icons prefix">lock</i>
+                  <%= f.label :password_confirmation,placeholder:'Password_Confirmation' %>
+                  <%= f.password_field :password_confirmation %>
+                  <p id="paragraph_password_confirmation" class="help"></p>
+                </div>
+              </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+              <div class="row">
+                <div class="field">
+                  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                  <%= f.password_field :current_password, autocomplete: "off" %>
+                </div>
+              </div>
+              <div class="row ">
+                <br>
+                <div class="field  center-align">
+                  <%= f.submit "Save", class:'btn  waves-light'%>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
