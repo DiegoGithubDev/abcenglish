@@ -20,10 +20,12 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # GET /resource/edit
    def edit
      super
+
    end
 
   # PUT /resource
    def update
+     puts "holaaaaaaaaaaaaaaaaaaaaaaaaa"
      super
    end
 
@@ -73,6 +75,20 @@ class Students::RegistrationsController < Devise::RegistrationsController
        redirect_to :controller => 'sessions', :action => 'new'
      end
    end
+
+    def update_fields(picturex,namex,last_namex,phonex,addressx,passwordx,password_confirmationx,facebookx,skypex)
+      current_student.image= picturex
+      current_student.name= namex
+      current_student.last_name=last_namex
+      current_student.phone=phonex
+      current_student.address=addressx
+      current_student.password=passwordx
+      current_student.password_confirmation=password_confirmationx
+      current_student.facebook=facebookx
+      current_student.skype=skypex
+      current_student.save
+
+    end
 
 end
 
