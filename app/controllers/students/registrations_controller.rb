@@ -25,6 +25,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
    def update
+     puts "holaaaaaaaaaaaaaaaaaaaaaaaaa"
      super
    end
 
