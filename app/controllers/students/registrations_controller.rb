@@ -30,11 +30,9 @@ class Students::RegistrationsController < Devise::RegistrationsController
      last_namex= params[:student][:last_name]
      phonex= params[:student][:phonex]
      addressx= params[:student][:address]
-     passwordx1= params[:student][:password]
-     passwordx2= params[:student][:password]
-     password_confirmationx= params[:student][:password_confirmation]
      facebookx= params[:student][:facebook]
      skypex= params[:student][:skype]
+     update_fields(picturex,name,last_namex,phonex,addressx,facebookx,skypex)
      super
    end
 
@@ -85,18 +83,15 @@ class Students::RegistrationsController < Devise::RegistrationsController
      end
    end
 
-    def update_fields(picturex,namex,last_namex,phonex,addressx,passwordx1,passwordx2,password_confirmationx,facebookx,skypex)
+    def update_fields(picturex,namex,last_namex,phonex,addressx,facebookx,skypex)
       current_student.image= picturex
       current_student.name= namex
       current_student.last_name=last_namex
       current_student.phone=phonex
       current_student.address=addressx
-      current_student.password=passwordx
-      current_student.password_confirmation=password_confirmationx
       current_student.facebook=facebookx
       current_student.skype=skypex
       current_student.save
-
     end
 
 end
