@@ -16,6 +16,8 @@ class Students::SessionsController < Devise::SessionsController
         if $student_cards  &&  !is_registered?($student_cards)
           $login = TRUE
           go_to_register
+        else
+          render dashboard_index_path
         end
       end
 
@@ -52,5 +54,9 @@ class Students::SessionsController < Devise::SessionsController
   def go_to_register
     redirect_to :controller =>"registrations" , :action =>"new"
   end
+
+    def go_to_dasboard
+      redirect_to :controller =>"dashboard" , :action =>"index"
+    end
 
 end
