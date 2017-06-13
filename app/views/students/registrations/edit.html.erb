@@ -7,7 +7,7 @@
           <div class="row">
             <div class="center col s2 offset-s5">
               <label class="file-field ">
-                <img id="image" src="<%= asset_path 'profile3.jpg'%>" alt="" class="circle responsive-img border1"> <!-- notice the "circle" class -->
+                <img id="image" src=" <%= current_student.get_base64_image %> " alt="" class="circle responsive-img border1"> <!-- notice the "circle" class -->
                 <span>profile</span>
                 <%= f.file_field :image , class:"active validate",onchange:"document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"%>
               </label>
