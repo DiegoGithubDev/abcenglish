@@ -91,7 +91,8 @@
 
               <div class="row">
                 <div class="field">
-                  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                  <i class="material-icons prefix">lock</i>
+                  <%= f.label :current_password %> (we need your current password to confirm your changes)<br />
                   <%= f.password_field :current_password, autocomplete: "off" %>
                 </div>
               </div>
