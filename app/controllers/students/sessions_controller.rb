@@ -17,7 +17,7 @@ class Students::SessionsController < Devise::SessionsController
           $login = TRUE
           go_to_register
         else
-          render dashboard_index_path
+          redirect_to root_path
         end
       end
 
