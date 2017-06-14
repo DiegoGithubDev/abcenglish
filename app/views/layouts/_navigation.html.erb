@@ -7,6 +7,9 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><%= link_to('Edit Profile', edit_student_registration_path)%></li>
         <li><%= link_to('Home', root_path) %></li>
+        <li>
+          <%= link_to('Logout', destroy_student_session_path, :method => :delete) %>
+        </li>
       </ul>
     </div>
   </nav>
