@@ -17,7 +17,7 @@ class Students::SessionsController < Devise::SessionsController
           $login = TRUE
           go_to_register
         else
-          redirect_to root_path
+          super
         end
       end
 
