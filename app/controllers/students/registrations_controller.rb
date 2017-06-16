@@ -12,7 +12,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
    def create
      super
      if resource.save
-       $student_cards.state=TRUE
+       $student_cards.state='AC'
        $student_cards.save
      end
    end
