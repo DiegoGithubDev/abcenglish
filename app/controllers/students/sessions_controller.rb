@@ -40,7 +40,7 @@ class Students::SessionsController < Devise::SessionsController
   private
 
   def is_registered?(student_card)
-    if(student_card.state==FALSE)
+    if(student_card.state=='IN')
       return false
     else
       return true
