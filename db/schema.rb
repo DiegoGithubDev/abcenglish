@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170519190318) do
     t.string   "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean  "state"
+    t.string   "state"
   end
 
   create_table "students", force: :cascade do |t|
