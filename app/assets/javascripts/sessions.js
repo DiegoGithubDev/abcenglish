@@ -18,6 +18,10 @@
             Materialize.toast(message,tiempo,color);
         });*/
 
+        setTimeout(function() {
+            $('#mensaje').fadeOut(1500);
+        },2000);
+
         /*centrando la fila*/
         var documentoAltura=$(document).height();
         var filaHaltura= $('#rowCenter').height();
