@@ -10,6 +10,14 @@
             }
         });
 
+        /*----------esto es para mostrar un alert--------------------
+         $ ('input[type="submit"]').click(function(){
+            var message= $('#mensaje').text();
+            var tiempo=800;
+            var color= 'red'
+            Materialize.toast(message,tiempo,color);
+        });*/
+
         /*centrando la fila*/
         var documentoAltura=$(document).height();
         var filaHaltura= $('#rowCenter').height();
