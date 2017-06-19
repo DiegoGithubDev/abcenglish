@@ -21,6 +21,8 @@
         setTimeout(function() {
             $('#mensaje').fadeOut(1500);
         },2000);
+        var message= $('#mensaje').text();
+        Materialize.toast(message,'2000','red','round');
 
         /*centrando la fila*/
         var documentoAltura=$(document).height();
