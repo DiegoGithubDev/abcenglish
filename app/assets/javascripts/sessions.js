@@ -18,11 +18,13 @@
             Materialize.toast(message,tiempo,color);
         });*/
 
-        setTimeout(function() {
-            $('#mensaje').fadeOut(1500);
-        },2000);
         var message= $('#mensaje').text();
-        Materialize.toast(message,'2000','red','round');
+         if (message.substr(0,1)=='Y'){
+             Materialize.toast(message,'2000','green','round');
+         }else{
+             Materialize.toast(message,'2000','red','round');
+         }
+
 
         /*centrando la fila*/
         var documentoAltura=$(document).height();
