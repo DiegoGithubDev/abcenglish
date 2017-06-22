@@ -25,7 +25,11 @@ class Students::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
    def update
-     super
+    super
+    @case_data= params[:student][:image].read
+     resource.image=@case_data
+     resource.save
+   # @case_data.update_attributes(case_params)
    end
 
   # DELETE /resource
