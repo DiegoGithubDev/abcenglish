@@ -26,9 +26,11 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
    def update
     super
-    @case_data= params[:student][:image].read
-     resource.image=@case_data
-     resource.save
+    if params[:student][:image]
+      @case_data= params[:student][:image].read
+      resource.image=@case_data
+      resource.save
+    end
    # @case_data.update_attributes(case_params)
    end
 
