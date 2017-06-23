@@ -1,5 +1,19 @@
+<script>
+    $(document).ready(function(){
+        var message= $('#error_explanation li').text();
+        $('#error_explanation').css('display','none');
+        if (message.substr(0,1)=='C'){
+            Materialize.toast(message,'5000','red');
+
+        }
+
+
+
+    });
+</script>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <%=devise_error_messages! %>
     <div class="col">
       <!-- Form with placeholder -->
       <div class="col s12 m12 l6  "  style="margin-top: 3% ; margin-left: 20%; margin-right: 20% "  >
@@ -75,6 +89,13 @@
                 </div>
               </div>
               <div class="row">
+                <div class="field">
+                  <i class="material-icons prefix">lock</i>
+                  <%= f.label :current_password %>
+                  <%= f.password_field :current_password, autocomplete: "off" %>
+                </div>
+              </div>
+              <div class="row">
                 <div class="field col s12 m6 l6 quit-margen-botton">
                   <i class="material-icons prefix">lock_outline</i>
                   <%= f.label :password ,placeholder:'Password (6 characters minimun)'%>
@@ -88,17 +109,9 @@
                   <p id="paragraph_password_confirmation" class="help"></p>
                 </div>
               </div>
-
-              <div class="row">
-                <div class="field">
-                  <i class="material-icons prefix">lock</i>
-                  <%= f.label :current_password %> (we need your current password to confirm your changes)<br />
-                  <%= f.password_field :current_password, autocomplete: "off" %>
-                </div>
-              </div>
               <div class="row ">
-                <br>
                 <div class="field  center-align">
+                  <%= link_to 'Cancel' , root_path , class:"waves-effect waves-light btn" %>
                   <%= f.submit "Save", class:'btn  waves-light'%>
                 </div>
               </div>
