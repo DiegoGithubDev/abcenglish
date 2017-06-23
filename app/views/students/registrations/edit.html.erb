@@ -1,4 +1,140 @@
 <script>
+    $("#student_name").blur(function(){
+        var cadena=$(this).val();
+        cadena =deleteSpaceWhite(cadena);
+        cadena= ucWords(cadena);
+        $(this).val(cadena);
+    });
+
+    $("#student_last_name").blur(function(){
+        var cadena=$(this).val();
+        cadena =deleteSpaceWhite(cadena);
+        cadena= ucWords(cadena);
+        $(this).val(cadena);
+    });
+    /*---------------------personalitation gem jquey validations--------------------------------------------*/
+    jQuery.validator.addMethod("lettersonlys", function(value, element) {
+        return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
+    }, "Letters only please");
+
+    jQuery.validator.addMethod("alphanumeric", function(value, element) {
+        return this.optional(element) || /^[a-zA-Z0-9_]+$/.test(value);
+    }, "Letters and numers only please");
+
+    jQuery.validator.addMethod("convertToUpperCase", function(value, element) {
+        var upperCase= ucWords(value);
+        switch (element.id){
+            case "student_name":
+                $("#student_name").val(upperCase);
+                break;
+            case 'student_last_name':
+                $("#student_last_name").val(upperCase);
+                break;
+        }
+        return true;
+    }, "error uppercase");
+
+    jQuery.validator.addMethod("deleteSpaceBeginEnd", function(value, element) {
+        var cadena="";
+        cadena=delSpaceBeginEnd(cadena);
+        switch (element.id){
+            case "student_name":
+                $("#student_name").val(cadena);
+                break;
+            case 'student_last_name':
+                $("#student_last_name").val(cadena);
+                break;
+        }
+        return true;
+    }, "error deleteSpaceBeginEnd");
+
+
+    $("#new_student").validate({
+        rules: {
+            "student[name]": {
+                maxlength:19+1,
+                required: true,
+                lettersonlys:true,
+                //Uppercase
+
+            },
+            "student[last_name]":{
+                maxlength:19+1,
+                required: true,
+                lettersonlys:true,
+                //Uppercase
+
+            },
+            "student[phone]": {
+                digits:true,
+                required: true,
+                maxlength:8,
+                min:60000000,
+                max:79999999
+            },
+
+            "student[address]": {
+                maxlength: 50,
+                required: true
+            },
+
+            "student[user_name]": {
+                alphanumeric: true,
+                required: true,
+                minlength: 5
+            },
+
+            "student[email]": {
+                required: true,
+                email: true
+            },
+
+            "student[facebook]": {
+                required: true,
+                minlength: 5
+            },
+            "student[skype]": {
+                required: true,
+                minlength: 5
+            },
+            "student[password]": {
+                required: true,
+                alphanumeric:true,
+                minlength: 6
+
+            },
+
+            "student[password_confirmation]": {
+                required: true,
+                alphanumeric:true,
+                minlength: 6,
+                equalTo:"#student_password"
+            },
+
+
+        },
+        //For custom messages
+        messages: {
+            "student[phone]":{
+                required: "Enter a numer phone please",
+                min: "This number is not valid",
+                max: "This number is not valid"
+            },
+            curl: "Enter your website",
+        },
+        errorElement : 'div',
+        errorPlacement: function(error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+
+    /*method display message toast current password*/
     $(document).ready(function(){
         var message= $('#error_explanation li').text();
         $('#error_explanation').css('display','none');
