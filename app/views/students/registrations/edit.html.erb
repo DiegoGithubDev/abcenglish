@@ -139,8 +139,6 @@
     });
 
 
-
-
     $(document).click(function(){
         $('input[type="submit"]').removeAttr('disabled');
     });
@@ -150,76 +148,8 @@
 
     });
 
-    function functionx(){
-        if(document.getElementsByName("commit").disabled == true){ //here
-            alert("disabled");
-        }else{
-            alert("enable");
-        }
-    }
-    function existNumer(valorString) {
-        var i=0;
-        while ( (valorString.indexOf(i) < 0) && (i<9) ){
-            i++;
-        }
 
-        if ( (valorString.indexOf(i)) >= (0) ){
-            return true;
-        }else{
-            return false;
-        }
-    }
 
-    function fieldEmpty(valorString){
-        if( valorString == null || valorString.length == 0 || /^\s+$/.test(valorString) ) {
-            return true;
-        }
-    }
-
-    function validateEmail(valorString) {
-        if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(valorString)) ) {
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    function delSpaceBeginEnd(cadena){
-        var expresionRegular = /^\s+|\s+$/g;
-        return cadena.replace(expresionRegular, "");
-    }
-
-    function deleteSpaceWhite(string){
-        var s= string;
-        var ns="";
-        var arrays=s.split(" ");
-        for(i=0;i <arrays.length ;i++){
-            if(arrays[i]!= ""){
-                ns=ns+(arrays[i])+" ";
-            }
-        }
-        return (ns);
-    }
-
-    function ucWords(string){
-        var arrayWords;
-        var returnString = "";
-        var len;
-        arrayWords = string.split(" ");
-        len = arrayWords.length;
-        for(i=0;i < len ;i++){
-            if(i != (len-1)){
-                returnString = returnString+ucFirst(arrayWords[i])+" ";
-            }
-            else{
-                returnString = returnString+ucFirst(arrayWords[i]);
-            }
-        }
-        return returnString;
-    }
-    function ucFirst(string){
-        return string.substr(0,1).toUpperCase()+string.substr(1,string.length).toLowerCase();
-    }
     $(document).ready(function(){
         var message= $('#error_explanation li').text();
         $('#error_explanation').css('display','none');
