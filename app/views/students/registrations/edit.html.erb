@@ -15,9 +15,11 @@
 
     }
 
-    label.active{
+    .field label {
       margin-left: 5px;
     }
+
+
 </style>
 
 <script>
@@ -238,7 +240,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="field">
+                <div class="field col l12" >
                   <i class="material-icons prefix">lock</i>
                   <%= f.label :current_password %>
                   <%= f.password_field :current_password, autocomplete: "off" %>
