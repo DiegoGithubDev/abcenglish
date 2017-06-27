@@ -10,6 +10,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
    def create
+     resource.student_card_id=$student_cards.id
      super
      if resource.save
        $student_cards.state='AC'
