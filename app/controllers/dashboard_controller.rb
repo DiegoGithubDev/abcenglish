@@ -7,6 +7,5 @@ class DashboardController < ApplicationController
   end
 
   def book_container
-    render book_container
   end
 end
