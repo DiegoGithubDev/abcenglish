@@ -5,4 +5,8 @@ class DashboardController < ApplicationController
 
   def save
   end
+
+  def book_container
+    render book_container
+  end
 end
