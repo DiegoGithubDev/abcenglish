@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :students
   get 'dashboard/book_container'
   post 'dashboard/book_container'
+  get 'dashboard/page2'
+  get 'dashboard/page3'
 
   #root :to => redirect("/dashboard/index")
    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
