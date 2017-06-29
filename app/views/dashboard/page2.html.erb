@@ -1,32 +1,18 @@
 <style>
-  #marco{
-    background: mediumblue;
-    height: 700px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: white;
+  #border{
+    background: #730E15;
+    height: 500px;
+    z-index: 1;
+    padding: 40px;
+  }
+  #page{
+    background: #63e25b;
+    z-index: 2;
+    height: 250px;
   }
 </style>
-<script>
 
-</script>
-
-<%= render 'dashboard/border_partial' %>
-
-<div class="container" id="marco" >
-      <div id="letter">
-      </div>
-
-  <div class="fixed-action-btn horizontal">
-    <a class="btn-floating btn-large red">
-      <i class="large material-icons">mode_edit</i>
-    </a>
-    <ul>
-      <li><a class="btn-floating red"><i class="material-icons">keyboard_arrow_left</i></a></li>
-      <li><a class="btn-floating yellow darken-1"><i class="material-icons">keyboard_arrow_right</i> </a></li>
-      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-    </ul>
+<div id="border" >
+  <div id="page">
   </div>
-
 </div>
