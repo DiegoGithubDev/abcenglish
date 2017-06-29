@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :students
   get 'dashboard/book_container'
   post 'dashboard/book_container'
+  get 'dashboard/page1'
   get 'dashboard/page2'
   get 'dashboard/page3'
 
