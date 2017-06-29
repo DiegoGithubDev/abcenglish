@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   get 'dashboard/page1'
   get 'dashboard/page2'
   get 'dashboard/page3'
+  get 'calculator/left'
+  post 'calculator/left'
+  get 'calculator/right'
+  post 'calculator/right'
 
   #root :to => redirect("/dashboard/index")
    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,28 +1,27 @@
-<style>
-  #borde{
-    background: darkred;
-    position: absolute;
-    z-index: 0;
-    height: 600px;
-    width: 100%;
 
-  }
-
-</style>
 
 <div id="borde">
 </div>
+
+<%= link_to "rigth", :controller => "calculator", :action => "right" %>
+
+<%= link_to "left", :controller => "calculator", :action => :left %>
 
 <div class="fixed-action-btn horizontal">
   <a class="btn-floating btn-large red">
     <i class="large material-icons">mode_edit</i>
   </a>
   <ul>
-    <li><a href='page1' class="btn-floating red"><i class="material-icons">keyboard_arrow_left</i></a></li>
-    <li><a href='page2' class="btn-floating yellow darken-1"><i class="material-icons">keyboard_arrow_right</i> </a></li>
+    <%= form_tag(controller: "calculator", action:"right", method: "post") do %>
+      <li><a class="btn-floating red"><i class="material-icons"><%= submit_tag("right") %>keyboard_arrow_left</i></a></li>
+    <% end %>
+    <%= form_tag(controller: "calculator", action:"left", method: "post") do %>
+      <li><a  class="btn-floating yellow darken-1"><i class="material-icons"><%= submit_tag("left") %>keyboard_arrow_right</i> </a></li>
+    <% end %>
     <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
     <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
   </ul>
 </div>
+
 
 
