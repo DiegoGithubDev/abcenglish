@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
   before_action :authenticate_student!
-  MAX_PAGE_LIBRO1=100
+  MAX_PAGE_BOOK1=100
+  MIX_PAGE_BOOKS=1
   def index
     @page_current= current_student.current_page
   end
@@ -13,16 +14,14 @@ class DashboardController < ApplicationController
 
 
   def right
-    if @page_current<MAX_PAGE_LIBRO1
+    if @page_current<MAX_PAGE_BOOK1
       @page_current = @page_current + 1
-      render "dashboard/page#{@page_current}"
     end
+    render "dashboard/page#{@page_current}"
   end
 
   def left
-    @page_current = 2 #get current page from student
     @page_current =  @page_current - 1
-
     render "dashboard/page1"
   end
 
