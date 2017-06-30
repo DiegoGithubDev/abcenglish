@@ -18,6 +18,20 @@
 
     });
 </script>
+<style>
+  #formPage{
+    width: 50px;
+    margin: 5%;
+    background: beige;
+
+  }
+    form{
+      width: 50px;
+      margin: 5%;
+      background: beige;
+    }
+
+</style>
 
 <div id="borde">
 </div>
@@ -35,14 +49,6 @@
       <li><a href="<%= dashboard_right_path %>" class="btn-floating yellow darken-1"><i class="material-icons">keyboard_arrow_right</i> </a></li>
     <li><a class="btn-floating green"  onclick="showInputPage()"><i class="material-icons">publish</i></a></li>
     <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-    <li><%= form_tag(controller: "dashboard", action:"go_to_numer_page", method: "post") do %>
-          <%= label_tag(:numer_page, "ir a page") %>
-          <%= text_field_tag(:numer_page) %>
-        <%= submit_tag("go to") %>
-        <% end %>
-    </li>
-
-
   </ul>
 </div>
 
