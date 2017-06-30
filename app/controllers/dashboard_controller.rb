@@ -24,7 +24,7 @@ class DashboardController < ApplicationController
     if $page_current.to_i>MIX_PAGE_BOOKS
       $page_current =  $page_current.to_i - 1
     end
-    render "dashboard/page#{@page_current}"
+    render "dashboard/page#{$page_current}"
   end
 
 
