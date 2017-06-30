@@ -1,52 +1,47 @@
 <script>
-    $(document).ready(function(){
-      function showInputPage(){
-          if($('#inputPage').is(":visible")==true){
-              $('#inputPage').hide();
-          }else{
-              $('#inputPage').show();
-          }
-      }
-      $("#inputTextPage").keypress(function(event){
-          if(event.keyCode == 13){
-              // $("#inputTextPage").click();
-              //alert('HAs presionado enter');
-              var text = $('#inputTextPage').val();
-              redirect(text+'.html');
-          }
-      });
+    function imprimir() {
+        $('#inputPage').hide();
+            $('#buttonAgregar').click(function () {
+                if($('#inputPage').is(":visible")==true){
+                    $('#inputPage').hide();
+                }else{
+                    $('#inputPage').show();
+                }
+            });
 
+
+    };
+    $(document).ready(function(){
+            imprimir();
     });
+
+
 </script>
 <style>
-  #formPage{
-    width: 50px;
-    margin: 5%;
-    background: beige;
-
-  }
     form{
-      width: 50px;
-      margin: 5%;
       background: beige;
     }
 
 </style>
-
 <div id="borde">
 </div>
-<%= form_tag(controller: "dashboard", action:"go_to_numer_page", method: "post") do %>
-    <%= label_tag( :numer_page, "ir a page") %>
-    <%= text_field_tag(:numer_page) %>
-    <%= submit_tag("go to") %>
-<% end %>
+<!-- DIALOG INPUT PAGE NUMBER -->
+<div id="inputPage" class="card white" style="height: 80px;width: auto;position: fixed;top: 74vh;left: 77.5vw;">
+    <%= form_tag(controller: "dashboard", action:"go_to_numer_page", method: "post") do %>
+        <%= label_tag( :numer_page, "ir a page") %>
+        <%= text_field_tag(:numer_page) %>
+    <% end %>
+</div>
+
+
+
 <div class="fixed-action-btn horizontal">
   <a class="btn-floating btn-large red">
     <i class="large material-icons">description</i>
   </a>
   <ul>
     <li><a href="<%= dashboard_left_path %>" class="btn-floating red"><i class="material-icons">keyboard_arrow_left</i></a></li>
-    <li><a class="btn-floating blue"><i class="material-icons">code</i></a></li>
+    <li><a class="btn-floating blue"  ><i class="material-icons"><%= submit_tag "Agregar", {:type => "button", :id => "buttonAgregar"} %>code</i></a></li>
     <li><a href="<%= dashboard_right_path %>" class="btn-floating yellow darken-1"><i class="material-icons">keyboard_arrow_right</i> </a></li>
   </ul>
 </div>

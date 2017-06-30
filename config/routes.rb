@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'page4/page4'
+
    #get '/login',  to: 'student_sessions#new'
   #get '/logout', to: 'student_sessions#destroy'
   root to: 'dashboard#index'
