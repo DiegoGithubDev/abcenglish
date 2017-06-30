@@ -21,8 +21,10 @@ class DashboardController < ApplicationController
   end
 
   def left
-    @page_current =  @page_current - 1
-    render "dashboard/page1"
+    if @page_current>MIX_PAGE_BOOKS
+      @page_current =  @page_current - 1
+    end
+    render "dashboard/page#{@page_current}"
   end
 
 
