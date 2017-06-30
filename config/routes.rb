@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   post 'dashboard/left'
   get 'dashboard/right'
   post 'dashboard/right'
+  get 'dashboard/go_to_numer_page'
+  post 'dashboard/go_to_numer_page'
 
   #root :to => redirect("/dashboard/index")
    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

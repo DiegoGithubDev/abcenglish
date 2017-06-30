@@ -27,5 +27,10 @@ class DashboardController < ApplicationController
     render "dashboard/page#{$page_current}"
   end
 
+  def go_to_numer_page
+    @numer_page = params[:numer_page]
+    render "dashboard/page#{@numer_page}"
+  end
+
 
 end
