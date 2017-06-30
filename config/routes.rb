@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   post 'calculator/left'
   get 'calculator/right'
   post 'calculator/right'
+  get 'dashboard/left'
+  post 'dashboard/left'
+  get 'dashboard/right'
+  post 'dashboard/right'
 
   #root :to => redirect("/dashboard/index")
    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
