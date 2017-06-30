@@ -13,6 +13,13 @@
     };
     $(document).ready(function(){
             imprimir();
+        $('#icon_x').click(function () {
+            if($('#inputPage').is(":visible")==true){
+                $('#inputPage').hide();
+            }else{
+                $('#inputPage').show();
+            }
+        });
     });
 
 
@@ -28,7 +35,7 @@
 </div>
 <!-- DIALOG INPUT PAGE NUMBER -->
 <div id="inputPage" class="card white" style="height: 80px;width: auto;position: fixed;top: 74vh;left: 77.5vw;">
-  <i class="material-icons" style="margin-left: 150px">clear</i>
+  <a  id="icon_x"> <i class="material-icons" style="margin-left: 150px">clear</i></a>
   <%= form_tag(controller: "dashboard", action:"go_to_numer_page", method: "post") do %>
         <%= label_tag( :numer_page, "ir a page   ") %>
         <%= text_field_tag(:numer_page) %>
