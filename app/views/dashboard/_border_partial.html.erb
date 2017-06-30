@@ -20,6 +20,7 @@
 <style>
     form{
       background: beige;
+
     }
 
 </style>
@@ -27,8 +28,9 @@
 </div>
 <!-- DIALOG INPUT PAGE NUMBER -->
 <div id="inputPage" class="card white" style="height: 80px;width: auto;position: fixed;top: 74vh;left: 77.5vw;">
-    <%= form_tag(controller: "dashboard", action:"go_to_numer_page", method: "post") do %>
-        <%= label_tag( :numer_page, "ir a page") %>
+  <i class="material-icons" style="margin-left: 150px">clear</i>
+  <%= form_tag(controller: "dashboard", action:"go_to_numer_page", method: "post") do %>
+        <%= label_tag( :numer_page, "ir a page   ") %>
         <%= text_field_tag(:numer_page) %>
     <% end %>
 </div>
