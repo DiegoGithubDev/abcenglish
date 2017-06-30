@@ -1,3 +1,24 @@
+<script>
+    $(document).ready(function(){
+      function showInputPage(){
+          if($('#inputPage').is(":visible")==true){
+              $('#inputPage').hide();
+          }else{
+              $('#inputPage').show();
+          }
+      }
+      $("#inputTextPage").keypress(function(event){
+          if(event.keyCode == 13){
+              // $("#inputTextPage").click();
+              //alert('HAs presionado enter');
+              var text = $('#inputTextPage').val();
+              redirect(text+'.html');
+          }
+      });
+
+    });
+</script>
+
 <div id="borde">
 </div>
 <div class="fixed-action-btn horizontal">
@@ -7,7 +28,7 @@
   <ul>
       <li><a href="<%= dashboard_left_path %>" class="btn-floating red"><i class="material-icons">keyboard_arrow_left</i></a></li>
       <li><a href="<%= dashboard_right_path %>" class="btn-floating yellow darken-1"><i class="material-icons">keyboard_arrow_right</i> </a></li>
-    <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+    <li><a class="btn-floating green"  onclick="showInputPage()"><i class="material-icons">publish</i></a></li>
     <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
   </ul>
 </div>
