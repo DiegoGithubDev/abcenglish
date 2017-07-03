@@ -12,7 +12,7 @@
 
     };
     $(document).ready(function(){
-            imprimir();
+           // imprimir();
         $('#icon_x').click(function () {
             if($('#inputPage').is(":visible")==true){
                 $('#inputPage').hide();
@@ -20,6 +20,17 @@
                 $('#inputPage').show();
             }
         });
+
+        $('#inputPage').hide();
+
+        $('#buttonAgregar').click(function () {
+            if($('#inputPage').is(":visible")==true){
+                $('#inputPage').hide();
+            }else{
+                $('#inputPage').show();
+            }
+        });
+
     });
 
 
@@ -42,7 +53,7 @@
     <% end %>
 </div>
 
-
+<!--<%= submit_tag "Agregar", {:type => "button", :id => "buttonAgregar"} %> -->
 
 <div class="fixed-action-btn horizontal">
   <a class="btn-floating btn-large red">
@@ -50,7 +61,7 @@
   </a>
   <ul>
     <li><a href="<%= dashboard_left_path %>" class="btn-floating red"><i class="material-icons">keyboard_arrow_left</i></a></li>
-    <li><a class="btn-floating blue"  ><i class="material-icons"><%= submit_tag "Agregar", {:type => "button", :id => "buttonAgregar"} %>code</i></a></li>
+    <li><a id="buttonAgregar" class="btn-floating blue" ><i class="material-icons">code</i></a></li>
     <li><a href="<%= dashboard_right_path %>" class="btn-floating yellow darken-1"><i class="material-icons">keyboard_arrow_right</i> </a></li>
   </ul>
 </div>
