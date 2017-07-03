@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   before_action :authenticate_student!
   MAX_PAGE_BOOK1=100
-  MIX_PAGE_BOOKS=1
+  MIN_PAGE_BOOKS=1
   def index
     $page_current= current_student.current_page
   end
@@ -21,7 +21,7 @@ class DashboardController < ApplicationController
   end
 
   def left
-    if $page_current.to_i>MIX_PAGE_BOOKS
+    if $page_current.to_i>MIN_PAGE_BOOKS
       $page_current =  $page_current.to_i - 1
     end
     render "dashboard/page#{$page_current}"
@@ -29,8 +29,9 @@ class DashboardController < ApplicationController
 
   def go_to_numer_page
     @numer_page = params[:numer_page]
-    render "dashboard/page#{@numer_page}"
+      if @numer_page.to_i >= MIN_PAGE_BOOKS and @numer_page.to_i <= MAX_PAGE_BOOK1
+        render "dashboard/page#{@numer_page.to_s}"
+      end
   end
-
 
 end
