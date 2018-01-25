@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
   get 'page4/page4'
 
    #get '/login',  to: 'student_sessions#new'
