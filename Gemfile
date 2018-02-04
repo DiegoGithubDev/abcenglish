@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 gem 'stickykit-rails'
+gem 'rvm', '~> 1.11', '>= 1.11.3.9'
 gem 'jquery-validation-rails'
 gem 'material_icons'
 gem 'mini_magick', '~> 4.6', '>= 4.6.1'
@@ -64,4 +65,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails_12factor', group: :production
-ruby '2.2.5'
+ruby '2.2.6'
