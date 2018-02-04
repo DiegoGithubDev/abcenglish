@@ -242,11 +242,29 @@
                   nodeDataArray: nodedata,
                   linkDataArray: linkdata
               });
+
+          myPalette =
+              $(go.Palette, "myPaletteDiv",  // must name or refer to the DIV HTML element
+                  {
+                      scrollsPageOnFocus: false,
+                      nodeTemplateMap: myDiagram.nodeTemplateMap,  // share the templates used by myDiagram
+                      model: new go.GraphLinksModel([  // specify the contents of the Palette
+                          { category: "Start", text: "Start" },
+                          { text: "Step" },
+                          { text: "???", figure: "Diamond" },
+                          { category: "End", text: "End" },
+                          { category: "Comment", text: "Comment" }
+                      ])
+                  });
       }
   </script>
 </head>
 <body onload="init()">
+
 <div id="sample">
-  <div id="myDiagramDiv" style="border: solid 1px black; width:100%; height:600px"></div>
+  <div style="width: 100%; display: flex; justify-content: space-between">
+    <div id="myPaletteDiv" style="width: 100px; margin-right: 2px; background-color: whitesmoke; border: solid 1px black"></div>
+    <div id="myDiagramDiv" style="flex-grow: 1; height: 720px; border: solid 1px black"></div>
+  </div>
 </div>
 </body>
