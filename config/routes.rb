@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'diagram/index'
+
+  get 'diagram/save'
+
   get 'welcome/index'
 
   get 'page4/page4'
