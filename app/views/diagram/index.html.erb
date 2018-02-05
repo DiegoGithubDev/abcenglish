@@ -268,6 +268,29 @@
           // node data id's are odd numbers
           myDiagram.model = model;
       };
+      function generateScript() {
+          var model = go.Model.fromJson(document.getElementById("mySavedModel").value);
+          var arrayObjets = model.nodeDataArray;
+          var query = "";
+          var atributes = "";
+          var arrayTables = [];
+          for (x in arrayObjets){
+              nameTable= arrayObjets[x].name;
+              properties = arrayObjets[x].properties;
+              atributes = "";
+              for (i in properties ){
+                  name =properties[i].name;
+                  puntos = ":";
+                  type = properties[i].type;
+                  atributes += "  "+ name + puntos+ type +"\n";
+              }
+              query = "create table  " +nameTable+"\n" +atributes;
+              console.log(query);
+              arrayTables.push(query);
+          }
+          console.log(arrayTables);
+
+      }
   </script>
 </head>
 <body onload="init()">
@@ -279,6 +302,7 @@
   </div>
   <button id="SaveButton" onclick="save()">Save</button>
   <button onclick="load()">Load</button>
+  <button onclick="generateScript()">generate script</button>
   <textarea id="mySavedModel" style="width:100%;height:300px">{ "nodeKeyProperty": "id",
   "linkKeyProperty": "id",
   "nodeDataArray": [
