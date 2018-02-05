@@ -287,6 +287,11 @@ function generateScript() {
         console.log(query);
         arrayTables.push(query);
     }
-    console.log(arrayTables);
+    var cad = "";
+    for (x in arrayTables){
+       table = arrayTables[x]
+        cad +=table+"\n";
+    }
+    return cad;
 
 }
