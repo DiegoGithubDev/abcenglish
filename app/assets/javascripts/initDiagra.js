@@ -173,22 +173,23 @@
         var nodedata = [
             {
                 key: 1,
-                name: "BankAccount",
+                name: "CuentaBancaria",
                 properties: [
-                    { name: "owner", type: "String", visibility: "public" },
-                    { name: "balance", type: "Currency", visibility: "public", default: "0" }
+                    { name: "propietario", type: "varcha(100)", visibility: "public" },
+                    { name: "balance", type: "decimal", visibility: "public", default: "0" }
                 ],
                 methods: [
-                    { name: "deposit", parameters: [{ name: "amount", type: "Currency" }], visibility: "public" },
-                    { name: "withdraw", parameters: [{ name: "amount", type: "Currency" }], visibility: "public" }
+                    { name: "depositar", parameters: [{ name: "amount", type: "Currency" }], visibility: "public" },
+                    { name: "retirar", parameters: [{ name: "amount", type: "Currency" }], visibility: "public" }
                 ]
             },
             {
                 key: 11,
-                name: "Person",
+                name: "persona",
                 properties: [
-                    { name: "name", type: "String", visibility: "public" },
-                    { name: "birth", type: "Date", visibility: "protected" }
+                    { name: "ci", type: "int", visibility: "public" },
+                    { name: "nombre", type: "varchar(100)", visibility: "public" },
+                    { name: "apellidos", type: "varchar(100)", visibility: "protected" }
                 ],
                 methods: [
                     { name: "getCurrentAge", type: "int", visibility: "public" }
@@ -196,39 +197,37 @@
             },
             {
                 key: 12,
-                name: "Student",
+                name: "Estudiante",
                 properties: [
-                    { name: "classes", type: "List<Course>", visibility: "public" }
-                ],
-                methods: [
-                    { name: "attend", parameters: [{ name: "class", type: "Course" }], visibility: "private" },
-                    { name: "sleep", visibility: "private" }
+                    { name: "registro", type: "int", visibility: "public" },
+                    { name: "nombre", type: "varchar(200)", visibility: "public" }
                 ]
             },
             {
                 key: 13,
-                name: "Professor",
+                name: "Profesor",
                 properties: [
-                    { name: "classes", type: "List<Course>", visibility: "public" }
+                    { name: "codigo", type: "int", visibility: "public" },
+                    { name: "nombre", type: "varchar(200)", visibility: "public" }
                 ],
                 methods: [
-                    { name: "teach", parameters: [{ name: "class", type: "Course" }], visibility: "private" }
                 ]
             },
             {
                 key: 14,
-                name: "Course",
+                name: "curso",
                 properties: [
-                    { name: "name", type: "String", visibility: "public" },
-                    { name: "description", type: "String", visibility: "public" },
-                    { name: "professor", type: "Professor", visibility: "public" },
-                    { name: "location", type: "String", visibility: "public" },
-                    { name: "times", type: "List<Time>", visibility: "public" },
-                    { name: "prerequisites", type: "List<Course>", visibility: "public" },
-                    { name: "students", type: "List<Student>", visibility: "public" }
+                    { name: "name", type: "varchar(100)", visibility: "public" },
+                    { name: "description", type: "varchar(100)", visibility: "public" },
+                    { name: "idprofesor", type: "int", visibility: "public" },
+                    { name: "location", type: "varchar(100)", visibility: "public" },
+                    { name: "horario", type: "time", visibility: "public" },
+                    { name: "prerequisites", type: "int", visibility: "public" },
+                    { name: "fkEstudiante", type: "int", visibility: "public" }
                 ]
             }
         ];
+
         var linkdata = [
             { from: 12, to: 11, relationship: "generalization" },
             { from: 13, to: 11, relationship: "generalization" },
