@@ -279,11 +279,17 @@ function generateScript() {
         atributes = "";
         for (i in properties ){
             name =properties[i].name;
-            puntos = ":";
             type = properties[i].type;
-            atributes += "  "+ name + puntos+ type +"\n";
+            if (i == 0){
+                atributes += "  "+ name + " "+ type+ " NOT NULL PRIMARY KEY," +"\n";
+            }else
+            if (i == properties.length-1){
+                atributes += "  "+ name + " "+ type+"\n" +");";
+            }else{
+                atributes += "  "+ name +" "+ type+","+"\n";
+            }
         }
-        query = "create table  " +nameTable+"\n" +atributes;
+        query = "CREATE TABLE " +nameTable +"(" +"\n" +atributes;
         console.log(query);
         arrayTables.push(query);
     }
