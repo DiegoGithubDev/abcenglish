@@ -295,7 +295,7 @@ function generateScript() {
     }
     var cad = "";
     for (x in arrayTables){
-       table = arrayTables[x]
+       table = arrayTables[x];
         cad +=table+"\n";
     }
     return cad;
